@@ -14,25 +14,6 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 #include <Uefi.h>
 #include <Library/UefiLib.h>
-
-#if 0
-UINT32 _PCD_GET_MODE_32_PcdMaximumLinkedListLength = 32;
-UINT32 _PCD_GET_MODE_32_PcdMaximumAsciiStringLength = 256;
-UINT32 _PCD_GET_MODE_32_PcdMaximumUnicodeStringLength = 256;
-UINT32 _PCD_GET_MODE_32_PcdFixedDebugPrintErrorLevel = 0xF;
-UINT32 _PCD_GET_MODE_32_PcdDebugPrintErrorLevel = 0xFFFFFFFF;
-UINT32 _PCD_GET_MODE_32_PcdUefiLibMaxPrintBufferSize = 256;
-UINT32 _PCD_GET_MODE_32_PcdMaximumDevicePathNodeCount = 32;
-
-INT8 _PCD_GET_MODE_8_PcdDebugClearMemoryValue = 0x41;
-INT8 _PCD_GET_MODE_8_PcdDebugPropertyMask = 0xFF;
-
-BOOLEAN _PCD_GET_MODE_BOOL_PcdDriverDiagnosticsDisable = FALSE;
-BOOLEAN _PCD_GET_MODE_BOOL_PcdComponentNameDisable = FALSE;
-BOOLEAN _PCD_GET_MODE_BOOL_PcdComponentName2Disable = FALSE;
-BOOLEAN _PCD_GET_MODE_BOOL_PcdDriverDiagnostics2Disable = FALSE;
-BOOLEAN _PCD_GET_MODE_BOOL_PcdUgaConsumeSupport = FALSE;
-#else
 #include <Pi/PiStatusCode.h>
 
 BOOLEAN _PCD_GET_MODE_BOOL_PcdComponentNameDisable = FALSE;
@@ -114,4 +95,3 @@ UINT8 _PCD_GET_MODE_8_PcdDefaultTerminalType = 0;
 
 UINT16 _PCD_GET_MODE_16_PcdHardwareErrorRecordLevel = 0;
 UINT16 _PCD_GET_MODE_16_PcdPlatformBootTimeOut = 0xffff;
-#endif
