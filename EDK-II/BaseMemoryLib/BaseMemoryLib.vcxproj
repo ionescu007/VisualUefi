@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
@@ -19,7 +19,7 @@
   <PropertyGroup Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -32,7 +32,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <IncludePath>c:\efi\edk2-master\MdePkg\Include\;c:\efi\edk2-master\MdePkg\Include\X64;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\edk2\MdePkg\Include\;..\..\edk2\MdePkg\Include\X64;$(IncludePath)</IncludePath>
     <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup>
@@ -45,7 +45,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BufferSecurityCheck>false</BufferSecurityCheck>
-      <ForcedIncludeFiles>c:\efi\EDK-II\BaseLib\vshacks.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles>..\..\..\EDK-II\BaseLib\vshacks.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -55,21 +55,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\edk2-master\MdePkg\Library\BaseMemoryLib\CompareMemWrapper.c" />
-    <ClCompile Include="..\..\edk2-master\MdePkg\Library\BaseMemoryLib\CopyMem.c" />
-    <ClCompile Include="..\..\edk2-master\MdePkg\Library\BaseMemoryLib\CopyMemWrapper.c" />
-    <ClCompile Include="..\..\edk2-master\MdePkg\Library\BaseMemoryLib\MemLibGeneric.c" />
-    <ClCompile Include="..\..\edk2-master\MdePkg\Library\BaseMemoryLib\MemLibGuid.c" />
-    <ClCompile Include="..\..\edk2-master\MdePkg\Library\BaseMemoryLib\ScanMem16Wrapper.c" />
-    <ClCompile Include="..\..\edk2-master\MdePkg\Library\BaseMemoryLib\ScanMem32Wrapper.c" />
-    <ClCompile Include="..\..\edk2-master\MdePkg\Library\BaseMemoryLib\ScanMem64Wrapper.c" />
-    <ClCompile Include="..\..\edk2-master\MdePkg\Library\BaseMemoryLib\ScanMem8Wrapper.c" />
-    <ClCompile Include="..\..\edk2-master\MdePkg\Library\BaseMemoryLib\SetMem.c" />
-    <ClCompile Include="..\..\edk2-master\MdePkg\Library\BaseMemoryLib\SetMem16Wrapper.c" />
-    <ClCompile Include="..\..\edk2-master\MdePkg\Library\BaseMemoryLib\SetMem32Wrapper.c" />
-    <ClCompile Include="..\..\edk2-master\MdePkg\Library\BaseMemoryLib\SetMem64Wrapper.c" />
-    <ClCompile Include="..\..\edk2-master\MdePkg\Library\BaseMemoryLib\SetMemWrapper.c" />
-    <ClCompile Include="..\..\edk2-master\MdePkg\Library\BaseMemoryLib\ZeroMemWrapper.c" />
+    <ClCompile Include="..\..\edk2\MdePkg\Library\BaseMemoryLib\CompareMemWrapper.c" />
+    <ClCompile Include="..\..\edk2\MdePkg\Library\BaseMemoryLib\CopyMem.c" />
+    <ClCompile Include="..\..\edk2\MdePkg\Library\BaseMemoryLib\CopyMemWrapper.c" />
+    <ClCompile Include="..\..\edk2\MdePkg\Library\BaseMemoryLib\MemLibGeneric.c" />
+    <ClCompile Include="..\..\edk2\MdePkg\Library\BaseMemoryLib\MemLibGuid.c" />
+    <ClCompile Include="..\..\edk2\MdePkg\Library\BaseMemoryLib\ScanMem16Wrapper.c" />
+    <ClCompile Include="..\..\edk2\MdePkg\Library\BaseMemoryLib\ScanMem32Wrapper.c" />
+    <ClCompile Include="..\..\edk2\MdePkg\Library\BaseMemoryLib\ScanMem64Wrapper.c" />
+    <ClCompile Include="..\..\edk2\MdePkg\Library\BaseMemoryLib\ScanMem8Wrapper.c" />
+    <ClCompile Include="..\..\edk2\MdePkg\Library\BaseMemoryLib\SetMem.c" />
+    <ClCompile Include="..\..\edk2\MdePkg\Library\BaseMemoryLib\SetMem16Wrapper.c" />
+    <ClCompile Include="..\..\edk2\MdePkg\Library\BaseMemoryLib\SetMem32Wrapper.c" />
+    <ClCompile Include="..\..\edk2\MdePkg\Library\BaseMemoryLib\SetMem64Wrapper.c" />
+    <ClCompile Include="..\..\edk2\MdePkg\Library\BaseMemoryLib\SetMemWrapper.c" />
+    <ClCompile Include="..\..\edk2\MdePkg\Library\BaseMemoryLib\ZeroMemWrapper.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
