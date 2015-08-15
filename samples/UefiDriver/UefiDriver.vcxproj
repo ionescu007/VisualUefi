@@ -7,13 +7,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{79D78FD5-8F41-442F-944E-81774DC9DF39}</ProjectGuid>
+    <ProjectGuid>{DF325AB7-67A6-473E-93FF-16955AFBC063}</ProjectGuid>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+  <PropertyGroup>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
+    <ConfigurationType>Application</ConfigurationType>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -25,8 +25,8 @@
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>..\..\edk2\MdePkg\Include;..\..\edk2\MdePkg\Include\X64;$(IncludePath)</IncludePath>
     <GenerateManifest>false</GenerateManifest>
-    <LibraryPath>..\..\edk-ii\$(Platform)\$(Configuration)\;$(LibraryPath)</LibraryPath>
     <TargetExt>.efi</TargetExt>
+    <LibraryPath>..\..\edk-ii\x64\Release\;$(LibraryPath)</LibraryPath>
     <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup>
@@ -40,21 +40,27 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
-      <SubSystem>EFI Application</SubSystem>
+      <EntryPointSymbol>EfiMain</EntryPointSymbol>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>GlueLib.lib;BaseLib.lib;BaseDebugPrintErrorLevelLib.lib;BaseMemoryLib.lib;BasePrintLib.lib;UefiLib.lib;UefiApplicationEntryPoint.lib;UefiBootServicesTableLib.lib;UefiRuntimeServicesTableLib.lib;UefiDevicePathLibDevicePathProtocol.lib;UefiDebugLibConOut.lib;UefiMemoryLib.lib;UefiMemoryAllocationLib.lib</AdditionalDependencies>
+      <AdditionalDependencies>BaseLib.lib;UefiDriverEntryPoint.lib;BasePrintLib.lib;UefiBootServicesTableLib.lib;UefiRuntimeServicesTableLib.lib;UefiDebugLibConOut.lib;BaseMemoryLib.lib;UefiMemoryLib.lib;UefiMemoryAllocationLib.lib;BaseDebugPrintErrorLevelLib.lib;UefiLib.lib;UefiDevicePathLibDevicePathProtocol.lib;BaseSynchronizationLib.lib;UefiFileHandleLib.lib;GlueLib.lib</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
-      <EntryPointSymbol>EfiMain</EntryPointSymbol>
+      <SubSystem>EFI Boot Service Driver</SubSystem>
       <SetChecksum>true</SetChecksum>
       <Driver>Driver</Driver>
-      <RandomizedBaseAddress/>
-      <DataExecutionPrevention/>
+      <RandomizedBaseAddress />
+      <DataExecutionPrevention />
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="helloapp.c" />
+    <ClCompile Include="drvname.c" />
+    <ClCompile Include="drvpnp.c" />
+    <ClCompile Include="drvmain.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="drv.h" />
+    <ClInclude Include="drvproto.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
