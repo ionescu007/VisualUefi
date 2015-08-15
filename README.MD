@@ -54,7 +54,7 @@ For other feedback, you can reach me on Twitter at @aionescu
 
 * For the "samples" and "edk-ii" directory, the following license applies:
 
-	Copyright (c) 2015, Alex Ionescu. All rights reserved.
+	* Copyright (c) 2015, Alex Ionescu. All rights reserved.
 	This program and the accompanying materials are licensed and made available under
 	the terms and conditions of the BSD License which accompanies this distribution. 
 	The full text of the license may be found at
@@ -62,7 +62,7 @@ For other feedback, you can reach me on Twitter at @aionescu
 
 * For the "debugger" directory, the following license applies:
 
-	The following points clarify the QEMU license:
+	* The following points clarify the QEMU license:
 
 	1) QEMU as a whole is released under the GNU General Public License,
 	version 2.
