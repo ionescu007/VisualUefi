@@ -33,7 +33,7 @@ You can press F5 (Run/Debug) from within the Sample Solution, which should spin 
 
 You can then try loading the driver as follows:
 
-	* `Load fs0:\UefiDriver.efi`
+	* Load fs0:\UefiDriver.efi
 
 You can verify its presence by using either of these commands:
 
@@ -52,7 +52,7 @@ For other feedback, you can reach me on Twitter at @aionescu
 
 ## License
 
-	* For the "samples" and "edk-ii" directory, the following license applies:
+* For the "samples" and "edk-ii" directory, the following license applies:
 
 	Copyright (c) 2015, Alex Ionescu. All rights reserved.
 	This program and the accompanying materials are licensed and made available under
@@ -60,7 +60,7 @@ For other feedback, you can reach me on Twitter at @aionescu
 	The full text of the license may be found at
 	http://opensource.org/licenses/bsd-license.php
 
-	* For the "debugger" directory, the following license applies:
+* For the "debugger" directory, the following license applies:
 
 	The following points clarify the QEMU license:
 
@@ -84,4 +84,4 @@ For other feedback, you can reach me on Twitter at @aionescu
 
 	Fabrice Bellard and the QEMU team
 
-	* The "edk2" submodule has its own licensing information, please read it.
+* The "edk2" submodule has its own licensing information, please read it.
