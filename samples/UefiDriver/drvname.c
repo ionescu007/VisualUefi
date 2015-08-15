@@ -84,11 +84,6 @@ SampleComponentNameGetControllerName (
     }
 
     //
-    // Since we don't actually own any of the devices, bypass this check just
-    // so users can see "Sample Device".
-    //
-#if 0
-    //
     // Make sure that this is a device we support
     //
     efiStatus = EfiTestManagedDevice(ControllerHandle,
@@ -98,7 +93,6 @@ SampleComponentNameGetControllerName (
     {
         goto Exit;
     }
-#endif
 
     //
     // Find a matching string in the device name string table

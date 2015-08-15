@@ -62,6 +62,7 @@ SampleDriverSupported (
                                   EFI_OPEN_PROTOCOL_BY_DRIVER);
     if (EFI_ERROR(efiStatus))
     {
+        pciIo = NULL;
         goto Exit;
     }
 
@@ -203,7 +204,7 @@ SampleDriverStart (
     )
 {
     EFI_STATUS efiStatus;
-    EFI_PCI_IO_PROTOCOL* pciIo;
+    EFI_PCI_IO_PROTOCOL* pciIo, childPciIo;
     PDEVICE_EXTENSION deviceExtension;
 
     //
@@ -224,6 +225,7 @@ SampleDriverStart (
                                   EFI_OPEN_PROTOCOL_BY_DRIVER);
     if (EFI_ERROR(efiStatus))
     {
+        pciIo = NULL;
         ASSERT_EFI_ERROR(efiStatus);
         goto Exit;
     }
@@ -267,7 +269,7 @@ SampleDriverStart (
     //
     efiStatus = gBS->OpenProtocol(Controller,
                                   &gEfiPciIoProtocolGuid,
-                                  (VOID**)&pciIo,
+                                  (VOID**)&childPciIo,
                                   This->DriverBindingHandle,
                                   deviceExtension->DeviceHandle,
                                   EFI_OPEN_PROTOCOL_BY_CHILD_CONTROLLER);
