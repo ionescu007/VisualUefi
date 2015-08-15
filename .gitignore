@@ -3,3 +3,4 @@ EDK-II/.vs/EDK-II/v14/.suo
 x64
 *.opensdf
 *.suo
+debugger/stderr.txt
