@@ -54,34 +54,34 @@ For other feedback, you can reach me on Twitter at @aionescu
 
 * For the "samples" and "edk-ii" directory, the following license applies:
 
-	* Copyright (c) 2015, Alex Ionescu. All rights reserved.
-	This program and the accompanying materials are licensed and made available under
-	the terms and conditions of the BSD License which accompanies this distribution. 
-	The full text of the license may be found at
-	http://opensource.org/licenses/bsd-license.php
+		Copyright (c) 2015, Alex Ionescu. All rights reserved.
+		This program and the accompanying materials are licensed and made available under
+		the terms and conditions of the BSD License which accompanies this distribution. 
+		The full text of the license may be found at
+		http://opensource.org/licenses/bsd-license.php
 
 * For the "debugger" directory, the following license applies:
 
-	* The following points clarify the QEMU license:
+		The following points clarify the QEMU license:
 
-	1) QEMU as a whole is released under the GNU General Public License,
-	version 2.
+		1) QEMU as a whole is released under the GNU General Public License,
+		version 2.
 
-	2) Parts of QEMU have specific licenses which are compatible with the
-	GNU General Public License, version 2. Hence each source file contains
-	its own licensing information.  Source files with no licensing information
-	are released under the GNU General Public License, version 2 or (at your
-	option) any later version.
+		2) Parts of QEMU have specific licenses which are compatible with the
+		GNU General Public License, version 2. Hence each source file contains
+		its own licensing information.  Source files with no licensing information
+		are released under the GNU General Public License, version 2 or (at your
+		option) any later version.
 
-	As of July 2013, contributions under version 2 of the GNU General Public
-	License (and no later version) are only accepted for the following files
-	or directories: bsd-user/, linux-user/, hw/misc/vfio.c, hw/xen/xen_pt*.
+		As of July 2013, contributions under version 2 of the GNU General Public
+		License (and no later version) are only accepted for the following files
+		or directories: bsd-user/, linux-user/, hw/misc/vfio.c, hw/xen/xen_pt*.
 
-	3) The Tiny Code Generator (TCG) is released under the BSD license
-	   (see license headers in files).
+		3) The Tiny Code Generator (TCG) is released under the BSD license
+		   (see license headers in files).
 
-	4) QEMU is a trademark of Fabrice Bellard.
+		4) QEMU is a trademark of Fabrice Bellard.
 
-	Fabrice Bellard and the QEMU team
+		Fabrice Bellard and the QEMU team
 
 * The "edk2" submodule has its own licensing information, please read it.
