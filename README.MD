@@ -2,12 +2,12 @@
 
 VisualUEFI is 
 
-	* A Solution and set of Visual Studio 2015 Project Files to allow building the official EDK-II without the use of inf files, python and 50 other build tools, a custom dependency tracker and build system, and twenty other custom pieces of code.
-	  The EDK-II is present as a submodule, directly from the official TianoCore Tree, and no changes are done to it.
+* A Solution and set of Visual Studio 2015 Project Files to allow building the official EDK-II without the use of inf files, python and 50 other build tools, a custom dependency tracker and build system, and twenty other custom pieces of code.
+  The EDK-II is present as a submodule, directly from the official TianoCore Tree, and no changes are done to it.
 
-	* A Solution and couple of Visual Studio 2015 Project Files to show two UEFI sample components: A UEFI Application, and a UEFI Boot Driver. The code is 100% EDK-II compatible, but built with VisualUEFI instead.
+* A Solution and couple of Visual Studio 2015 Project Files to show two UEFI sample components: A UEFI Application, and a UEFI Boot Driver. The code is 100% EDK-II compatible, but built with VisualUEFI instead.
 
-	* A working copy of QEMU64 2.3 for Windows, with a fairly recent UEFI 2.5 OVMF Secure Boot ROM. These will updated on an ongoing basis as needed. This is integrated with the Visual Studio 2015 Sample Solution so that pressing F5 will spin up the instance for testing.
+* A working copy of QEMU64 2.3 for Windows, with a fairly recent UEFI 2.5 OVMF Secure Boot ROM. These will updated on an ongoing basis as needed. This is integrated with the Visual Studio 2015 Sample Solution so that pressing F5 will spin up the instance for testing.
 
 ## Code Example
 
@@ -33,7 +33,7 @@ You can press F5 (Run/Debug) from within the Sample Solution, which should spin 
 
 You can then try loading the driver as follows:
 
-	* Load fs0:\UefiDriver.efi
+	* `Load fs0:\UefiDriver.efi`
 
 You can verify its presence by using either of these commands:
 
