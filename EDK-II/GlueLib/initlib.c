@@ -60,6 +60,20 @@ DevicePathLibConstructor(
   IN EFI_SYSTEM_TABLE  *SystemTable
 );
 
+EFI_STATUS
+EFIAPI
+RuntimeDriverLibConstruct(
+  IN EFI_HANDLE        ImageHandle,
+  IN EFI_SYSTEM_TABLE  *SystemTable
+);
+
+EFI_STATUS
+EFIAPI
+RuntimeDriverLibDeconstruct(
+  IN EFI_HANDLE        ImageHandle,
+  IN EFI_SYSTEM_TABLE  *SystemTable
+);
+
 /**
   Calls library constructors.
 
@@ -87,6 +101,8 @@ ProcessLibraryConstructorList (
 
   DevicePathLibConstructor(ImageHandle, SystemTable);
 
+//  RuntimeDriverLibConstruct(ImageHandle, SystemTable);
+
   return EFI_SUCCESS;
 }
 
@@ -106,7 +122,7 @@ ProcessLibraryDestructorList (
   IN EFI_SYSTEM_TABLE  *SystemTable
   )
 {
-
+ // RuntimeDriverLibDeconstruct(ImageHandle, SystemTable);
 }
 
 /**
