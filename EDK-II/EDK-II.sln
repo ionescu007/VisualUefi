@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BaseLib", "BaseLib\BaseLib.vcxproj", "{7DEFAA61-169C-48B9-95B8-410B5493033B}"
 EndProject
@@ -12,8 +12,6 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UefiApplicationEntryPoint", "UefiApplicationEntryPoint\UefiApplicationEntryPoint.vcxproj", "{93D9DC93-154F-47F0-9FCC-C93AA23CB1C3}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BaseCacheMaintenanceLib", "BaseCacheMaintenanceLib\BaseCacheMaintenanceLib.vcxproj", "{CE39A737-B7EE-4542-8EF7-B829E8E2FBC0}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BaseMemoryLib", "BaseMemoryLib\BaseMemoryLib.vcxproj", "{800C8E76-FFE0-4892-BD11-429B51D556D0}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UefiMemoryLib", "UefiMemoryLib\UefiMemoryLib.vcxproj", "{450578CF-FB0F-48F3-8249-B4349E252239}"
 EndProject
@@ -56,8 +54,6 @@ Global
 		{93D9DC93-154F-47F0-9FCC-C93AA23CB1C3}.Release|x64.Build.0 = Release|x64
 		{CE39A737-B7EE-4542-8EF7-B829E8E2FBC0}.Release|x64.ActiveCfg = Release|x64
 		{CE39A737-B7EE-4542-8EF7-B829E8E2FBC0}.Release|x64.Build.0 = Release|x64
-		{800C8E76-FFE0-4892-BD11-429B51D556D0}.Release|x64.ActiveCfg = Release|x64
-		{800C8E76-FFE0-4892-BD11-429B51D556D0}.Release|x64.Build.0 = Release|x64
 		{450578CF-FB0F-48F3-8249-B4349E252239}.Release|x64.ActiveCfg = Release|x64
 		{450578CF-FB0F-48F3-8249-B4349E252239}.Release|x64.Build.0 = Release|x64
 		{878366AB-B98A-4933-A487-DCE343F51371}.Release|x64.ActiveCfg = Release|x64
