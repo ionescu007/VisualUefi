@@ -44,7 +44,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>BaseLib.lib;UefiDriverEntryPoint.lib;BasePrintLib.lib;UefiBootServicesTableLib.lib;UefiRuntimeServicesTableLib.lib;UefiDebugLibConOut.lib;BaseMemoryLib.lib;UefiMemoryLib.lib;UefiMemoryAllocationLib.lib;BaseDebugPrintErrorLevelLib.lib;UefiLib.lib;UefiDevicePathLibDevicePathProtocol.lib;BaseSynchronizationLib.lib;UefiFileHandleLib.lib;GlueLib.lib</AdditionalDependencies>
+      <AdditionalDependencies>BaseLib.lib;UefiDriverEntryPoint.lib;BasePrintLib.lib;UefiBootServicesTableLib.lib;UefiRuntimeServicesTableLib.lib;UefiDebugLibConOut.lib;UefiMemoryLib.lib;UefiMemoryAllocationLib.lib;BaseDebugPrintErrorLevelLib.lib;UefiLib.lib;UefiDevicePathLibDevicePathProtocol.lib;BaseSynchronizationLib.lib;UefiFileHandleLib.lib;GlueLib.lib</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
       <SubSystem>EFI Boot Service Driver</SubSystem>
       <SetChecksum>true</SetChecksum>
