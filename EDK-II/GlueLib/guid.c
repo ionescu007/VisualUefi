@@ -27,6 +27,9 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 #include <Protocol/AcpiTable.h>
 #include <Protocol/Decompress.h>
 
+#include <Protocol/SerialIo.h>
+#include <Protocol/UsbIo.h>
+
 #include <Guid/PcAnsi.h>
 #include <Guid/GlobalVariable.h>
 #include <Guid/EventGroup.h>
@@ -61,4 +64,7 @@ EFI_GUID gEfiDecompressProtocolGuid = EFI_DECOMPRESS_PROTOCOL_GUID;
 
 EFI_GUID gEfiEventExitBootServicesGuid = EFI_EVENT_GROUP_EXIT_BOOT_SERVICES;
 EFI_GUID gEfiEventVirtualAddressChangeGuid = EFI_EVENT_GROUP_VIRTUAL_ADDRESS_CHANGE;
+
+EFI_GUID gEfiUsbIoProtocolGuid = EFI_USB_IO_PROTOCOL_GUID;
+EFI_GUID gEfiSerialIoProtocolGuid = EFI_SERIAL_IO_PROTOCOL_GUID;
 
