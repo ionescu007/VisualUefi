@@ -1,4 +1,4 @@
-#include <Base.h>
+#include <Uefi.h>
 
 extern UINT32 _PCD_GET_MODE_32_PcdMaximumLinkedListLength;
 extern UINT32 _PCD_GET_MODE_32_PcdMaximumAsciiStringLength;
