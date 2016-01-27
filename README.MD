@@ -13,7 +13,7 @@ VisualUEFI is
 
 Here is a very simple example of a UEFI application communicating with a UEFI driver protocol. This sample is part of VisualUefi.
 
-```
+```c
 //
 // Basic UEFI Libraries
 //
