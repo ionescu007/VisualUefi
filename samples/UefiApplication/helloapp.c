@@ -23,6 +23,11 @@ EFI_GUID gEfiSampleDriverProtocolGuid = EFI_SAMPLE_DRIVER_PROTOCOL_GUID;
 //
 extern CONST UINT32 _gUefiDriverRevision = 0;
 
+//
+// Our name
+//
+CHAR8 *gEfiCallerBaseName = "UefiApplication";
+
 EFI_STATUS
 EFIAPI
 UefiUnload (

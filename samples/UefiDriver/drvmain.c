@@ -11,6 +11,11 @@ const UINT8 _gDriverUnloadImageCount = 1;
 const UINT32 _gUefiDriverRevision = 0x200;
 const UINT32 _gDxeRevision = 0x200;
 
+//
+// Our name
+//
+CHAR8 *gEfiCallerBaseName = "UefiDriver";
+
 EFI_STATUS
 EFIAPI
 UefiUnload (

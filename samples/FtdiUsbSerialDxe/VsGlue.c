@@ -8,6 +8,11 @@ const UINT8 _gDriverUnloadImageCount = 1;
 //
 const UINT32 _gUefiDriverRevision = 0x200;
 
+//
+// Our name
+//
+CHAR8 *gEfiCallerBaseName = "FtdiUsbSerialDxe";
+
 EFI_STATUS
 EFIAPI
 FtdiUsbSerialUnload (
