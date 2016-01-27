@@ -12,6 +12,13 @@
     <IncludePath>$(EDK_PATH)\MdePkg\Include;$(EDK_PATH)\MdePkg\Include\X64;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)..\EDK-II\x64\Release\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup>
+    <LocalDebuggerCommand>..\debugger\qemu.exe</LocalDebuggerCommand>
+    <LocalDebuggerCommandArguments>-drive if=pflash,format=raw,file=OVMF-pure-efi.fd -drive file=fat:rw:..\samples\x64\release\,media=disk,if=virtio,format=raw -m 512 -M q35 -nodefaults -vga std</LocalDebuggerCommandArguments>
+    <LocalDebuggerWorkingDirectory>..\..\debugger</LocalDebuggerWorkingDirectory>
+    <LocalDebuggerDebuggerType>Script</LocalDebuggerDebuggerType>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
       <WholeProgramOptimization>true</WholeProgramOptimization>
