@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A2130067-15EA-4909-95E5-48CA36213CC4}</ProjectGuid>
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(SolutionDir)\samples.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalDependencies>UefiApplicationEntryPoint.lib;OpensslLib.lib;BaseCryptLib.lib;IntrinsicLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\edk2\CryptoPkg\Application\Cryptest\Cryptest.c" />
+    <ClCompile Include="..\..\edk2\CryptoPkg\Application\Cryptest\HashVerify.c" />
+    <ClCompile Include="..\..\edk2\CryptoPkg\Application\Cryptest\HmacVerify.c" />
+    <ClCompile Include="..\..\edk2\CryptoPkg\Application\Cryptest\BlockCipherVerify.c" />
+    <ClCompile Include="..\..\edk2\CryptoPkg\Application\Cryptest\RsaVerify.c" />
+    <ClCompile Include="..\..\edk2\CryptoPkg\Application\Cryptest\RsaVerify2.c" />
+    <ClCompile Include="..\..\edk2\CryptoPkg\Application\Cryptest\AuthenticodeVerify.c" />
+    <ClCompile Include="..\..\edk2\CryptoPkg\Application\Cryptest\TSVerify.c" />
+    <ClCompile Include="..\..\edk2\CryptoPkg\Application\Cryptest\DhVerify.c" />
+    <ClCompile Include="..\..\edk2\CryptoPkg\Application\Cryptest\RandVerify.c" />
+    <ClCompile Include="VsGlue.c" />
+  </ItemGroup>
+</Project>

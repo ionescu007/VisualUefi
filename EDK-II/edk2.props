@@ -9,7 +9,7 @@
     <GenerateManifest>
     </GenerateManifest>
     <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(TargetName)\</IntDir>
-    <IncludePath>$(EDK_PATH)\MdePkg\Include;$(EDK_PATH)\MdePkg\Include\X64;$(EDK_PATH)\CryptoPkg\include\;$(OPENSSL_PATH)\;$(OPENSSL_PATH)\include;$(OPENSSL_PATH)\crypto\include;$(OPENSSL_PATH)\crypto\modes\;$(EDK_PATH)\CryptoPkg\Library\OpensslLib;$(IncludePath)</IncludePath>
+    <IncludePath>$(EDK_PATH)\MdePkg\Include;$(EDK_PATH)\MdePkg\Include\X64;$(EDK_PATH)\CryptoPkg\include\;$(OPENSSL_PATH)\;$(OPENSSL_PATH)\include;$(OPENSSL_PATH)\crypto\include;$(OPENSSL_PATH)\crypto\modes\;$(EDK_PATH)\CryptoPkg\Library\OpensslLib;$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>

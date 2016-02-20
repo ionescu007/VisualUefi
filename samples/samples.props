@@ -8,8 +8,8 @@
     <GenerateManifest>
     </GenerateManifest>
     <TargetExt>.efi</TargetExt>
-    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\</IntDir>
-    <IncludePath>$(EDK_PATH)\MdePkg\Include;$(EDK_PATH)\MdePkg\Include\X64;$(IncludePath)</IncludePath>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(TargetName)\</IntDir>
+    <IncludePath>$(EDK_PATH)\MdePkg\Include;$(EDK_PATH)\MdePkg\Include\X64;$(EDK_PATH)\CryptoPkg\Include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)..\EDK-II\x64\Release\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup>

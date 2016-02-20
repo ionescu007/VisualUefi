@@ -15,17 +15,17 @@
     <CharacterSet>Unicode</CharacterSet>
     <ProjectGuid>{362BEE7E-5FBE-45D4-B303-3C0451E87C35}</ProjectGuid>
   </PropertyGroup>
-  <ItemDefinitionGroup>
-    <ClCompile>
-      <AdditionalOptions>/wd4133 /wd4244 /wd4245 /wd4267 /wd4701 /wd4305 /wd4306 /wd4702 /wd4706 /wd4311 /wd4090 %(AdditionalOptions)</AdditionalOptions>
-      <PreprocessorDefinitions>L_ENDIAN;OPENSSL_SMALL_FOOTPRINT</PreprocessorDefinitions>
-      <UndefinePreprocessorDefinitions>_WIN32;_WIN64;_MSC_VER</UndefinePreprocessorDefinitions>
-      <ForcedIncludeFiles>opensslconf.h</ForcedIncludeFiles>
-    </ClCompile>
-  </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+    <ItemDefinitionGroup>
+        <ClCompile>
+            <AdditionalOptions>/wd4133 /wd4244 /wd4245 /wd4267 /wd4701 /wd4305 /wd4306 /wd4702 /wd4706 /wd4311 /wd4090 %(AdditionalOptions)</AdditionalOptions>
+            <PreprocessorDefinitions>L_ENDIAN;OPENSSL_SMALL_FOOTPRINT;strdup=</PreprocessorDefinitions>
+            <UndefinePreprocessorDefinitions>_WIN32;_WIN64;_MSC_VER</UndefinePreprocessorDefinitions>
+            <ForcedIncludeFiles>opensslconf.h</ForcedIncludeFiles>
+        </ClCompile>
+    </ItemDefinitionGroup>
   <Import Project="$(SolutionDir)\edk2.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
@@ -183,6 +183,26 @@
     <ClCompile Include="..\..\openssl\crypto\dso\dso_vms.c" />
     <ClCompile Include="..\..\openssl\crypto\buffer\buffer.c" />
     <ClCompile Include="..\..\openssl\crypto\buffer\buf_err.c" />
+    <ClCompile Include="..\..\openssl\crypto\bio\bio_lib.c" />
+    <ClCompile Include="..\..\openssl\crypto\bio\bio_cb.c" />
+    <ClCompile Include="..\..\openssl\crypto\bio\bio_err.c" />
+    <ClCompile Include="..\..\openssl\crypto\bio\bss_mem.c" />
+    <ClCompile Include="..\..\openssl\crypto\bio\bss_null.c" />
+    <ClCompile Include="..\..\openssl\crypto\bio\bss_fd.c" />
+    <ClCompile Include="..\..\openssl\crypto\bio\bss_file.c" />
+    <ClCompile Include="..\..\openssl\crypto\bio\bss_sock.c" />
+    <ClCompile Include="..\..\openssl\crypto\bio\bss_conn.c" />
+    <ClCompile Include="..\..\openssl\crypto\bio\bf_null.c" />
+    <ClCompile Include="..\..\openssl\crypto\bio\bf_buff.c" />
+    <ClCompile Include="..\..\openssl\crypto\bio\b_dump.c" />
+    <ClCompile Include="..\..\openssl\crypto\bio\b_addr.c" />
+    <ClCompile Include="..\..\openssl\crypto\bio\b_sock.c" />
+    <ClCompile Include="..\..\openssl\crypto\bio\b_sock2.c" />
+    <ClCompile Include="..\..\openssl\crypto\bio\bss_acpt.c" />
+    <ClCompile Include="..\..\openssl\crypto\bio\bf_nbio.c" />
+    <ClCompile Include="..\..\openssl\crypto\bio\bss_log.c" />
+    <ClCompile Include="..\..\openssl\crypto\bio\bss_bio.c" />
+    <ClCompile Include="..\..\openssl\crypto\bio\bss_dgram.c" />
     <ClCompile Include="..\..\openssl\crypto\stack\stack.c" />
     <ClCompile Include="..\..\openssl\crypto\lhash\lhash.c" />
     <ClCompile Include="..\..\openssl\crypto\lhash\lh_stats.c" />

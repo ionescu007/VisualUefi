@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UefiDriver", "UefiDriver\Ue
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FtdiUsbSerialDxe", "FtdiUsbSerialDxe\FtdiUsbSerialDxe.vcxproj", "{DF325AB7-67A6-473E-93FF-16955AFBC064}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cryptest", "Cryptest\Cryptest.vcxproj", "{A2130067-15EA-4909-95E5-48CA36213CC4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Release|x64 = Release|x64
@@ -20,6 +22,8 @@ Global
 		{DF325AB7-67A6-473E-93FF-16955AFBC063}.Release|x64.Build.0 = Release|x64
 		{DF325AB7-67A6-473E-93FF-16955AFBC064}.Release|x64.ActiveCfg = Release|x64
 		{DF325AB7-67A6-473E-93FF-16955AFBC064}.Release|x64.Build.0 = Release|x64
+		{A2130067-15EA-4909-95E5-48CA36213CC4}.Release|x64.ActiveCfg = Release|x64
+		{A2130067-15EA-4909-95E5-48CA36213CC4}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

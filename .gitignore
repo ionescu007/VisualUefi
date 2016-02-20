@@ -5,3 +5,4 @@ x64
 *.suo
 debugger/stderr.txt
 debugger/stdout.txt
+*.opendb

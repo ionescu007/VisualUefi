@@ -41,6 +41,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UefiRuntimeLib", "UefiRunti
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BaseMemoryLib", "BaseMemoryLib\BaseMemoryLib.vcxproj", "{800C8E76-FFE0-4892-BD11-429B51D556D0}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpensslLib", "OpensslLib\OpensslLib.vcxproj", "{362BEE7E-5FBE-45D4-B303-3C0451E87C35}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BaseCryptLib", "BaseCryptLib\BaseCryptLib.vcxproj", "{6F08C1AF-ECF2-472D-8ABA-686F8F21CA5E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IntrinsicLib", "IntrinsicLib\IntrinsicLib.vcxproj", "{74A1C96B-5DAD-4A89-AFA0-AEB6138C1A74}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Release|x64 = Release|x64
@@ -86,6 +92,10 @@ Global
 		{800C8E76-FFE0-4892-BD11-429B51D556D0}.Release|x64.Build.0 = Release|x64
 		{362BEE7E-5FBE-45D4-B303-3C0451E87C35}.Release|x64.ActiveCfg = Release|x64
 		{362BEE7E-5FBE-45D4-B303-3C0451E87C35}.Release|x64.Build.0 = Release|x64
+		{6F08C1AF-ECF2-472D-8ABA-686F8F21CA5E}.Release|x64.ActiveCfg = Release|x64
+		{6F08C1AF-ECF2-472D-8ABA-686F8F21CA5E}.Release|x64.Build.0 = Release|x64
+		{74A1C96B-5DAD-4A89-AFA0-AEB6138C1A74}.Release|x64.ActiveCfg = Release|x64
+		{74A1C96B-5DAD-4A89-AFA0-AEB6138C1A74}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
