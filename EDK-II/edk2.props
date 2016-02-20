@@ -3,12 +3,13 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
     <EDK_PATH>$(SolutionDir)..\edk2</EDK_PATH>
+    <OPENSSL_PATH>$(SolutionDir)..\openssl</OPENSSL_PATH>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifest>
     </GenerateManifest>
     <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(TargetName)\</IntDir>
-    <IncludePath>$(EDK_PATH)\MdePkg\Include;$(EDK_PATH)\MdePkg\Include\X64;$(IncludePath)</IncludePath>
+    <IncludePath>$(EDK_PATH)\MdePkg\Include;$(EDK_PATH)\MdePkg\Include\X64;$(EDK_PATH)\CryptoPkg\include\;$(OPENSSL_PATH)\;$(OPENSSL_PATH)\include;$(OPENSSL_PATH)\crypto\include;$(OPENSSL_PATH)\crypto\modes\;$(EDK_PATH)\CryptoPkg\Library\OpensslLib;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
@@ -68,6 +69,10 @@
   <ItemGroup>
     <BuildMacro Include="EDK_PATH">
       <Value>$(EDK_PATH)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="OPENSSL_PATH">
+      <Value>$(OPENSSL_PATH)</Value>
       <EnvironmentVariable>true</EnvironmentVariable>
     </BuildMacro>
   </ItemGroup>
