@@ -7,7 +7,7 @@
   <PropertyGroup>
     <GenerateManifest>
     </GenerateManifest>
-    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\</IntDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(TargetName)\</IntDir>
     <IncludePath>$(EDK_PATH)\MdePkg\Include;$(EDK_PATH)\MdePkg\Include\X64;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup>
