@@ -1,0 +1,311 @@
+
+=== OVMF OVERVIEW ===
+
+The Open Virtual Machine Firmware (OVMF) project aims
+to support firmware for Virtual Machines using the edk2
+code base.  More information can be found at:
+
+http://www.tianocore.org/ovmf/
+
+=== STATUS ===
+
+Current capabilities:
+* IA32 and X64 architectures
+* QEMU (0.10.0 or later)
+  - Video, keyboard, IDE, CD-ROM, serial
+  - Runs UEFI shell
+  - Optional NIC support.  Requires QEMU (0.12.2 or later)
+* UEFI Linux boots
+* UEFI Windows 8 boots
+* UEFI Windows 7 & Windows 2008 Server boot (see important notes below!)
+
+=== FUTURE PLANS ===
+
+* Test/Stabilize UEFI Self-Certification Tests (SCT) results
+
+=== BUILDING OVMF ===
+
+Pre-requisites:
+* Build environment capable of build the edk2 MdeModulePkg.
+* A properly configured ASL compiler:
+  - Intel ASL compiler: Available from http://www.acpica.org
+  - Microsoft ASL compiler: Available from http://www.acpi.info
+* NASM: http://www.nasm.us/
+
+Update Conf/target.txt ACTIVE_PLATFORM for OVMF:
+                             PEI arch   DXE arch   UEFI interfaces
+* OvmfPkg/OvmfPkgIa32.dsc      IA32       IA32           IA32
+* OvmfPkg/OvmfPkgIa32X64.dsc   IA32       X64            X64
+* OvmfPkg/OvmfPkgX64.dsc       X64        X64            X64
+
+Update Conf/target.txt TARGET_ARCH based on the .dsc file:
+                             TARGET_ARCH
+* OvmfPkg/OvmfPkgIa32.dsc     IA32
+* OvmfPkg/OvmfPkgIa32X64.dsc  IA32 X64
+* OvmfPkg/OvmfPkgX64.dsc      X64
+
+Following the edk2 build process, you will find the OVMF binaries
+under the $WORKSPACE/Build/*/*/FV directory.  The actual path will
+depend on how your build is configured.  You can expect to find
+these binary outputs:
+* OVMF.FD
+  - Please note!  This filename has changed.  Older releases used OVMF.Fv.
+* OvmfVideo.rom
+  - This file is not built separately any longer, starting with svn r13520.
+
+More information on building OVMF can be found at:
+
+https://github.com/tianocore/tianocore.github.io/wiki/How%20to%20build%20OVMF
+
+=== RUNNING OVMF on QEMU ===
+
+* QEMU 0.12.2 or later is required.
+* Be sure to use qemu-system-x86_64, if you are using and X64 firmware.
+  (qemu-system-x86_64 works for the IA32 firmware as well, of course.)
+* Use OVMF for QEMU firmware (3 options available)
+  - Option 1: QEMU 1.6 or newer; Use QEMU -pflash parameter
+    * QEMU/OVMF will use emulated flash, and fully support UEFI variables
+    * Run qemu with: -pflash path/to/OVMF.fd
+    * Note that this option is required for running SecureBoot-enabled builds
+      (-D SECURE_BOOT_ENABLE).
+  - Option 2: Use QEMU -bios parameter
+    * Note that UEFI variables will be partially emulated, and non-volatile
+      variables may lose their contents after a reboot
+    * Run qemu with: -bios path/to/OVMF.fd
+  - Option 3: Use QEMU -L parameter
+    * Note that UEFI variables will be partially emulated, and non-volatile
+      variables may lose their contents after a reboot
+    * Either copy, rename or symlink OVMF.fd => bios.bin
+    * Use the QEMU -L parameter to specify the directory where the bios.bin
+      file is located.
+* The EFI shell is built into OVMF builds at this time, so it should
+  run automatically if a UEFI boot application is not found on the
+  removable media.
+* On Linux, newer version of QEMU may enable KVM feature, and this might
+  cause OVMF to fail to boot.  The QEMU '-no-kvm' may allow OVMF to boot.
+* Capturing OVMF debug messages on qemu:
+  - The default OVMF build writes debug messages to IO port 0x402.  The
+    following qemu command line options save them in the file called
+    debug.log: '-debugcon file:debug.log -global isa-debugcon.iobase=0x402'.
+  - It is possible to revert to the original behavior, when debug messages were
+    written to the emulated serial port (potentially intermixing OVMF debug
+    output with UEFI serial console output).  For this the
+    '-D DEBUG_ON_SERIAL_PORT' option has to be passed to the build command (see
+    the next section), and in order to capture the serial output qemu needs to
+    be started with eg. '-serial file:serial.log'.
+  - Debug messages fall into several categories.  Logged vs. suppressed
+    categories are controlled at OVMF build time by the
+    'gEfiMdePkgTokenSpaceGuid.PcdDebugPrintErrorLevel' bitmask (an UINT32
+    value) in the selected .dsc file.  Individual bits of this bitmask are
+    defined in <MdePkg/Include/Library/DebugLib.h>.  One non-default bit (with
+    some performance impact) that is frequently set for debugging is 0x00400000
+    (DEBUG_VERBOSE).
+  - The RELEASE build target ('-b RELEASE' build option, see below) disables
+    all debug messages.  The default build target is DEBUG.
+
+=== Build Scripts ===
+
+On systems with the bash shell you can use OvmfPkg/build.sh to simplify
+building and running OVMF.
+
+So, for example, to build + run OVMF X64:
+$ OvmfPkg/build.sh -a X64
+$ OvmfPkg/build.sh -a X64 qemu
+
+And to run a 64-bit UEFI bootable ISO image:
+$ OvmfPkg/build.sh -a X64 qemu -cdrom /path/to/disk-image.iso
+
+To build a 32-bit OVMF without debug messages using GCC 4.5:
+$ OvmfPkg/build.sh -a IA32 -b RELEASE -t GCC45
+
+=== SMM support ===
+
+Requirements:
+* SMM support requires QEMU 2.5.
+* The minimum required QEMU machine type is "pc-q35-2.5".
+* SMM with KVM requires Linux 4.4 (host).
+
+OVMF is capable of utilizing SMM if the underlying QEMU or KVM hypervisor
+emulates SMM. SMM is put to use in the S3 suspend and resume infrastructure,
+and in the UEFI variable driver stack. The purpose is (virtual) hardware
+separation between the runtime guest OS and the firmware (OVMF), with the
+intent to make Secure Boot actually secure, by preventing the runtime guest OS
+from tampering with the variable store and S3 areas.
+
+For SMM support, OVMF must be built with the "-D SMM_REQUIRE" option. The
+resultant firmware binary will check if QEMU actually provides SMM emulation;
+if it doesn't, then OVMF will log an error and trigger an assertion failure
+during boot (even in RELEASE builds). Both the naming of the flag (SMM_REQUIRE,
+instead of SMM_ENABLE), and this behavior are consistent with the goal
+described above: this is supposed to be a security feature, and fallbacks are
+not allowed. Similarly, a pflash-backed variable store is a requirement.
+
+QEMU should be started with the options listed below (in addition to any other
+guest-specific flags). The command line should be gradually composed from the
+hints below. '\' is used to extend the command line to multiple lines, and '^'
+can be used on Windows.
+
+* QEMU binary and options specific to 32-bit guests:
+
+  $ qemu-system-i386 -cpu coreduo,-nx \
+
+  or
+
+  $ qemu-system-x86_64 -cpu <MODEL>,-lm,-nx \
+
+* QEMU binary for running 64-bit guests (no particular options):
+
+  $ qemu-system-x86_64 \
+
+* Flags common to all SMM scenarios (only the Q35 machine type is supported):
+
+  -machine q35,smm=on,accel=(tcg|kvm) \
+  -m ... \
+  -smp ... \
+  -global driver=cfi.pflash01,property=secure,value=on \
+  -drive if=pflash,format=raw,unit=0,file=OVMF_CODE.fd,readonly=on \
+  -drive if=pflash,format=raw,unit=1,file=copy_of_OVMF_VARS.fd \
+
+* In order to disable S3, add:
+
+  -global ICH9-LPC.disable_s3=1 \
+
+=== Network Support ===
+
+OVMF provides a UEFI network stack by default. Its lowest level driver is the
+NIC driver, higher levels are generic. In order to make DHCP, PXE Boot, and eg.
+socket test utilities from the StdLib edk2 package work, (1) qemu has to be
+configured to emulate a NIC, (2) a matching UEFI NIC driver must be available
+when OVMF boots.
+
+(If a NIC is configured for the virtual machine, and -- dependent on boot order
+-- PXE booting is attempted, but no DHCP server responds to OVMF's DHCP
+DISCOVER message at startup, the boot process may take approx. 3 seconds
+longer.)
+
+* For each NIC emulated by qemu, a GPLv2 licensed UEFI driver is available from
+  the iPXE project. The qemu source distribution, starting with version 1.5,
+  contains prebuilt binaries of these drivers (and of course allows one to
+  rebuild them from source as well). This is the recommended set of drivers.
+
+* Use the qemu -netdev and -device options, or the legacy -net option, to
+  enable NIC support: <http://wiki.qemu.org/Documentation/Networking>.
+
+* For a qemu >= 1.5 binary running *without* any "-M machine" option where
+  "machine" would identify a < qemu-1.5 configuration (for example: "-M
+  pc-i440fx-1.4" or "-M pc-0.13"), the iPXE drivers are automatically available
+  to and configured for OVMF in the default qemu installation.
+
+* For a qemu binary in [0.13, 1.5), or a qemu >= 1.5 binary with an "-M
+  machine" option where "machine" selects a < qemu-1.5 configuration:
+
+  - download a >= 1.5.0-rc1 source tarball from <http://wiki.qemu.org/Download>,
+
+  - extract the following iPXE driver files from the tarball and install them
+    in a location that is accessible to qemu processes (this may depend on your
+    SELinux configuration, for example):
+
+    qemu-VERSION/pc-bios/efi-e1000.rom
+    qemu-VERSION/pc-bios/efi-ne2k_pci.rom
+    qemu-VERSION/pc-bios/efi-pcnet.rom
+    qemu-VERSION/pc-bios/efi-rtl8139.rom
+    qemu-VERSION/pc-bios/efi-virtio.rom
+
+  - extend the NIC's -device option on the qemu command line with a matching
+    "romfile=" optarg:
+
+    -device e1000,...,romfile=/full/path/to/efi-e1000.rom
+    -device ne2k_pci,...,romfile=/full/path/to/efi-ne2k_pci.rom
+    -device pcnet,...,romfile=/full/path/to/efi-pcnet.rom
+    -device rtl8139,...,romfile=/full/path/to/efi-rtl8139.rom
+    -device virtio-net-pci,...,romfile=/full/path/to/efi-virtio.rom
+
+* Independently of the iPXE NIC drivers, the default OVMF build provides a
+  basic virtio-net driver, located in OvmfPkg/VirtioNetDxe.
+
+* Also independently of the iPXE NIC drivers, Intel's proprietary E1000 NIC
+  driver (PROEFI) can be embedded in the OVMF image at build time:
+
+  - Download UEFI drivers for the e1000 NIC
+    - http://downloadcenter.intel.com/Detail_Desc.aspx?agr=Y&DwnldID=17515&lang=eng
+    - Install the drivers into a directory called Intel3.5 in your WORKSPACE.
+
+  - Include the driver in OVMF during the build:
+    - Add "-D E1000_ENABLE -D FD_SIZE_2MB" to your build command,
+    - For example: "build -D E1000_ENABLE -D FD_SIZE_2MB".
+
+* When a matching iPXE driver is configured for a NIC as described above, it
+  takes priority over other drivers that could possibly drive the card too:
+
+                 | e1000  ne2k_pci  pcnet  rtl8139  virtio-net-pci
+    -------------+------------------------------------------------
+    iPXE         |   x       x        x       x           x
+    VirtioNetDxe |                                        x
+    Intel PROEFI |   x
+
+=== OVMF Flash Layout ===
+
+Like all current IA32/X64 system designs, OVMF's firmware
+device (rom/flash) appears in QEMU's physical address space
+just below 4GB (0x100000000).
+
+The layout of the firmware device in memory looks like:
+
++--------------------------------------- 4GB (0x100000000)
+| VTF0 (16-bit reset code) and OVMF SEC
+| (SECFV)
++--------------------------------------- varies based on flash size
+|
+| Compressed main firmware image
+| (FVMAIN_COMPACT)
+|
++--------------------------------------- base + 0x20000
+| Fault-tolerant write (FTW)
+| Spare blocks (64KB/0x10000)
++--------------------------------------- base + 0x10000
+| FTW Work block (4KB/0x1000)
++--------------------------------------- base + 0x0f000
+| Event log area (4KB/0x1000)
++--------------------------------------- base + 0x0e000
+| Non-volatile variable storage
+| area (56KB/0xe000)
++--------------------------------------- base address
+
+OVMF supports building a 1MB or a 2MB flash image. The base address for
+a 1MB image in QEMU physical memory is 0xfff00000. The base address for
+a 2MB image is 0xffe00000.
+
+The code in SECFV locates FVMAIN_COMPACT, and decompresses the
+main firmware (MAINFV) into RAM memory at address 0x800000. The
+remaining OVMF firmware then uses this decompressed firmware
+volume image.
+
+=== UNIXGCC Debug ===
+
+If you build with the UNIXGCC toolchain, then debugging will be disabled
+due to larger image sizes being produced by the UNIXGCC toolchain. The
+first choice recommendation is to use GCC44 or newer instead.
+
+If you must use UNIXGCC, then you can override the build options for
+particular libraries and modules in the .dsc to re-enable debugging
+selectively. For example:
+  [Components]
+  OvmfPkg/Library/PlatformBdsLib/PlatformBdsLib.inf {
+    <BuildOptions>
+      GCC:*_*_*_CC_FLAGS             = -UMDEPKG_NDEBUG
+  }
+  IntelFrameworkModulePkg/Universal/BdsDxe/BdsDxe.inf {
+    <BuildOptions>
+      GCC:*_*_*_CC_FLAGS             = -UMDEPKG_NDEBUG
+  }
+
+=== UEFI Windows 7 & Windows 2008 Server ===
+
+* One of the '-vga std' and '-vga qxl' QEMU options should be used.
+* Only one video mode, 1024x768x32, is supported at OS runtime.
+* The '-vga qxl' QEMU option is recommended. After booting the installed
+  guest OS, select the video card in Device Manager, and upgrade its driver
+  to the QXL XDDM one. Download location:
+  <http://www.spice-space.org/download.html>, Guest | Windows binaries.
+  This enables further resolutions at OS runtime, and provides S3
+  (suspend/resume) capability.

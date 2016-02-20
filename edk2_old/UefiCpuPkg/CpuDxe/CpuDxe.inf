@@ -1,0 +1,95 @@
+## @file
+#  Simple CPU driver installs CPU Architecture Protocol.
+#
+#  Copyright (c) 2008 - 2015, Intel Corporation. All rights reserved.<BR>
+#  This program and the accompanying materials
+#  are licensed and made available under the terms and conditions of the BSD License
+#  which accompanies this distribution.  The full text of the license may be found at
+#  http://opensource.org/licenses/bsd-license.php
+#
+#  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = CpuDxe
+  MODULE_UNI_FILE                = CpuDxe.uni
+  FILE_GUID                      = 1A1E4886-9517-440e-9FDE-3BE44CEE2136
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+
+  ENTRY_POINT                    = InitializeCpu
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  UefiCpuPkg/UefiCpuPkg.dec
+
+[LibraryClasses]
+  BaseLib
+  BaseMemoryLib
+  CpuLib
+  DebugLib
+  DxeServicesTableLib
+  MemoryAllocationLib
+  MtrrLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  LocalApicLib
+  UefiCpuLib
+  UefiLib
+  CpuExceptionHandlerLib
+  TimerLib
+  SynchronizationLib
+  HobLib
+  ReportStatusCodeLib
+
+[Sources]
+  ApStartup.c
+  CpuDxe.c
+  CpuDxe.h
+  CpuGdt.c
+  CpuGdt.h
+  CpuMp.c
+  CpuMp.h
+
+[Sources.IA32]
+  Ia32/CpuAsm.asm | MSFT
+  Ia32/CpuAsm.asm | INTEL
+  Ia32/CpuAsm.S   | GCC
+  Ia32/MpAsm.asm  | MSFT
+  Ia32/MpAsm.asm  | INTEL
+  Ia32/MpAsm.nasm | GCC
+
+[Sources.X64]
+  X64/CpuAsm.asm | MSFT
+  X64/CpuAsm.asm | INTEL
+  X64/CpuAsm.S   | GCC
+  X64/MpAsm.asm  | MSFT
+  X64/MpAsm.asm  | INTEL
+  X64/MpAsm.nasm | GCC
+
+[Protocols]
+  gEfiCpuArchProtocolGuid                       ## PRODUCES
+  gEfiMpServiceProtocolGuid                     ## SOMETIMES_PRODUCES
+
+[Guids]
+  gIdleLoopEventGuid                            ## CONSUMES           ## Event
+  gEfiVectorHandoffTableGuid                    ## SOMETIMES_CONSUMES ## SystemTable
+
+[Ppis]
+  gEfiSecPlatformInformation2PpiGuid            ## UNDEFINED # HOB
+  gEfiSecPlatformInformationPpiGuid             ## UNDEFINED # HOB
+
+[Pcd]
+  gUefiCpuPkgTokenSpaceGuid.PcdCpuMaxLogicalProcessorNumber    ## CONSUMES
+  gUefiCpuPkgTokenSpaceGuid.PcdCpuApStackSize                  ## CONSUMES
+  gUefiCpuPkgTokenSpaceGuid.PcdCpuApInitTimeOutInMicroSeconds  ## CONSUMES
+
+[Depex]
+  TRUE
+
+[UserExtensions.TianoCore."ExtraFiles"]
+  CpuDxeExtra.uni
