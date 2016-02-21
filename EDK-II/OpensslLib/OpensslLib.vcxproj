@@ -18,14 +18,22 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
-    <ItemDefinitionGroup>
-        <ClCompile>
-            <AdditionalOptions>/wd4133 /wd4244 /wd4245 /wd4267 /wd4701 /wd4305 /wd4306 /wd4702 /wd4706 /wd4311 /wd4090 %(AdditionalOptions)</AdditionalOptions>
-            <PreprocessorDefinitions>L_ENDIAN;OPENSSL_SMALL_FOOTPRINT;strdup=</PreprocessorDefinitions>
-            <UndefinePreprocessorDefinitions>_WIN32;_WIN64;_MSC_VER</UndefinePreprocessorDefinitions>
-            <ForcedIncludeFiles>opensslconf.h</ForcedIncludeFiles>
-        </ClCompile>
-    </ItemDefinitionGroup>
+  <PropertyGroup>
+    <CustomBuildBeforeTargets>PreBuildEvent</CustomBuildBeforeTargets>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalOptions>/wd4133 /wd4244 /wd4245 /wd4267 /wd4701 /wd4305 /wd4306 /wd4702 /wd4706 /wd4311 /wd4090 %(AdditionalOptions)</AdditionalOptions>
+      <PreprocessorDefinitions>L_ENDIAN;OPENSSL_SMALL_FOOTPRINT;strdup=</PreprocessorDefinitions>
+      <UndefinePreprocessorDefinitions>_WIN32;_WIN64;_MSC_VER</UndefinePreprocessorDefinitions>
+      <ForcedIncludeFiles>opensslconf.h</ForcedIncludeFiles>
+    </ClCompile>
+    <CustomBuildStep>
+      <Command>copy "$(EDK_PATH)\CryptoPkg\Library\OpensslLib\opensslconf.h" "$(OPENSSL_PATH)\include\openssl\opensslconf.h" /y</Command>
+      <Message>Copying OpenSSL Configuration Header...</Message>
+      <Outputs>$(OPENSSL_PATH)\include\openssl\opensslconf.h</Outputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
   <Import Project="$(SolutionDir)\edk2.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />

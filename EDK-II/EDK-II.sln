@@ -44,6 +44,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpensslLib", "OpensslLib\OpensslLib.vcxproj", "{362BEE7E-5FBE-45D4-B303-3C0451E87C35}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BaseCryptLib", "BaseCryptLib\BaseCryptLib.vcxproj", "{6F08C1AF-ECF2-472D-8ABA-686F8F21CA5E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{362BEE7E-5FBE-45D4-B303-3C0451E87C35} = {362BEE7E-5FBE-45D4-B303-3C0451E87C35}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IntrinsicLib", "IntrinsicLib\IntrinsicLib.vcxproj", "{74A1C96B-5DAD-4A89-AFA0-AEB6138C1A74}"
 EndProject
