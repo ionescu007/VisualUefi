@@ -28,7 +28,9 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\edk2\CryptoPkg\Library\IntrinsicLib\MemoryIntrinsics.c" />
+    <ClCompile Include="..\..\edk2\CryptoPkg\Library\IntrinsicLib\MemoryIntrinsics.c">
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</TreatWarningAsError>
+    </ClCompile>
     <ClCompile Include="..\..\edk2\CryptoPkg\Library\IntrinsicLib\CopyMem.c" />
   </ItemGroup>
 </Project>

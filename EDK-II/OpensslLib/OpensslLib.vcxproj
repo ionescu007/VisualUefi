@@ -50,8 +50,9 @@
     <ClCompile Include="..\..\openssl\crypto\o_time.c" />
     <ClCompile Include="..\..\openssl\crypto\o_str.c" />
     <ClCompile Include="..\..\openssl\crypto\o_dir.c" />
-    <ClCompile Include="..\..\openssl\crypto\thr_id.c" />
-    <ClCompile Include="..\..\openssl\crypto\lock.c" />
+    <ClCompile Include="..\..\openssl\crypto\threads_pthread.c" />
+    <ClCompile Include="..\..\openssl\crypto\threads_win.c" />
+    <ClCompile Include="..\..\openssl\crypto\threads_none.c" />
     <ClCompile Include="..\..\openssl\crypto\o_init.c" />
     <ClCompile Include="..\..\openssl\crypto\o_fips.c" />
     <ClCompile Include="..\..\openssl\crypto\mem_sec.c" />
@@ -427,7 +428,6 @@
     <ClCompile Include="..\..\openssl\crypto\x509v3\pcy_lib.c" />
     <ClCompile Include="..\..\openssl\crypto\x509v3\v3_asid.c" />
     <ClCompile Include="..\..\openssl\crypto\x509v3\v3_addr.c" />
-    <ClCompile Include="..\..\openssl\crypto\x509v3\v3_scts.c" />
     <ClCompile Include="..\..\openssl\crypto\x509v3\v3_tlsf.c" />
     <ClCompile Include="..\..\openssl\crypto\conf\conf_err.c" />
     <ClCompile Include="..\..\openssl\crypto\conf\conf_lib.c" />
@@ -478,10 +478,13 @@
     <ClCompile Include="..\..\openssl\crypto\cmac\cm_ameth.c" />
     <ClCompile Include="..\..\openssl\crypto\cmac\cm_pmeth.c" />
     <ClCompile Include="..\..\openssl\crypto\async\async.c" />
+    <ClCompile Include="..\..\openssl\crypto\async\async_wait.c" />
     <ClCompile Include="..\..\openssl\crypto\async\async_err.c" />
     <ClCompile Include="..\..\openssl\crypto\async\arch\async_posix.c" />
     <ClCompile Include="..\..\openssl\crypto\async\arch\async_win.c" />
     <ClCompile Include="..\..\openssl\crypto\async\arch\async_null.c" />
     <ClCompile Include="..\..\openssl\crypto\kdf\tls1_prf.c" />
+    <ClCompile Include="..\..\openssl\crypto\kdf\kdf_err.c" />
+    <ClCompile Include="..\..\openssl\crypto\kdf\hkdf.c" />
   </ItemGroup>
 </Project>
