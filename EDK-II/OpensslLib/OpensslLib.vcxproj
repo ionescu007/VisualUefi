@@ -29,7 +29,8 @@
       <ForcedIncludeFiles>opensslconf.h</ForcedIncludeFiles>
     </ClCompile>
     <CustomBuildStep>
-      <Command>copy "$(EDK_PATH)\CryptoPkg\Library\OpensslLib\opensslconf.h" "$(OPENSSL_PATH)\include\openssl\opensslconf.h" /y</Command>
+      <Command>copy "$(EDK_PATH)\CryptoPkg\Library\OpensslLib\opensslconf.h" "$(OPENSSL_PATH)\include\openssl\opensslconf.h" /y
+type NUL &gt; "$(OPENSSL_PATH)\include\internal\dso_conf.h"</Command>
       <Message>Copying OpenSSL Configuration Header...</Message>
       <Outputs>$(OPENSSL_PATH)\include\openssl\opensslconf.h</Outputs>
     </CustomBuildStep>
@@ -281,7 +282,7 @@
     <ClCompile Include="..\..\openssl\crypto\evp\e_chacha20_poly1305.c" />
     <ClCompile Include="..\..\openssl\crypto\evp\cmeth_lib.c" />
     <ClCompile Include="..\..\openssl\crypto\asn1\a_object.c" />
-    <ClCompile Include="..\..\openssl\crypto\asn1\a_bitstr.c"/>
+    <ClCompile Include="..\..\openssl\crypto\asn1\a_bitstr.c" />
     <ClCompile Include="..\..\openssl\crypto\asn1\a_utctm.c" />
     <ClCompile Include="..\..\openssl\crypto\asn1\a_gentm.c" />
     <ClCompile Include="..\..\openssl\crypto\asn1\a_time.c" />
@@ -481,9 +482,9 @@
     <ClCompile Include="..\..\openssl\crypto\kdf\tls1_prf.c" />
     <ClCompile Include="..\..\openssl\crypto\kdf\kdf_err.c" />
     <ClCompile Include="..\..\openssl\crypto\kdf\hkdf.c" />
-    <ClCompile Include="..\..\openssl\crypto\blake2\blake2b.c"/>
-    <ClCompile Include="..\..\openssl\crypto\blake2\m_blake2b.c"/>
-    <ClCompile Include="..\..\openssl\crypto\blake2\blake2s.c"/>
-    <ClCompile Include="..\..\openssl\crypto\blake2\m_blake2s.c"/>
+    <ClCompile Include="..\..\openssl\crypto\blake2\blake2b.c" />
+    <ClCompile Include="..\..\openssl\crypto\blake2\m_blake2b.c" />
+    <ClCompile Include="..\..\openssl\crypto\blake2\blake2s.c" />
+    <ClCompile Include="..\..\openssl\crypto\blake2\m_blake2s.c" />
   </ItemGroup>
 </Project>
