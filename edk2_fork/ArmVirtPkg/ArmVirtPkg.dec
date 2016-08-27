@@ -1,0 +1,100 @@
+#/** @file
+#
+#  Copyright (c) 2014, Linaro Limited. All rights reserved.
+#
+#  This program and the accompanying materials
+#  are licensed and made available under the terms and conditions of the BSD License
+#  which accompanies this distribution.  The full text of the license may be found at
+#  http://opensource.org/licenses/bsd-license.php
+#
+#  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+#**/
+
+[Defines]
+  DEC_SPECIFICATION              = 0x00010005
+  PACKAGE_NAME                   = ArmVirtPkg
+  PACKAGE_GUID                   = A0B31216-508E-4025-BEAB-56D836C66F0A
+  PACKAGE_VERSION                = 0.1
+
+################################################################################
+#
+# Include Section - list of Include Paths that are provided by this package.
+#                   Comments are used for Keywords and Module Types.
+#
+# Supported Module Types:
+#  BASE SEC PEI_CORE PEIM DXE_CORE DXE_DRIVER DXE_RUNTIME_DRIVER DXE_SMM_DRIVER DXE_SAL_DRIVER UEFI_DRIVER UEFI_APPLICATION
+#
+################################################################################
+[Includes.common]
+  Include                        # Root include for the package
+
+[Guids.common]
+  gArmVirtTokenSpaceGuid = { 0x0B6F5CA7, 0x4F53, 0x445A, { 0xB7, 0x6E, 0x2E, 0x36, 0x5B, 0x80, 0x63, 0x66 } }
+  gEarlyPL011BaseAddressGuid       = { 0xB199DEA9, 0xFD5C, 0x4A84, { 0x80, 0x82, 0x2F, 0x41, 0x70, 0x78, 0x03, 0x05 } }
+
+[PcdsFixedAtBuild, PcdsPatchableInModule]
+  #
+  # This is the physical address where the device tree is expected to be stored
+  # upon first entry into UEFI. This needs to be a FixedAtBuild PCD, so that we
+  # can do a first pass over the device tree in the SEC phase to discover the
+  # UART base address.
+  #
+  gArmVirtTokenSpaceGuid.PcdDeviceTreeInitialBaseAddress|0x0|UINT64|0x00000001
+
+  #
+  # Padding in bytes to add to the device tree allocation, so that the DTB can
+  # be modified in place (default: 256 bytes)
+  #
+  gArmVirtTokenSpaceGuid.PcdDeviceTreeAllocationPadding|256|UINT32|0x00000002
+
+  #
+  # Binary representation of the GUID that determines the terminal type. The
+  # size must be exactly 16 bytes. The default value corresponds to
+  # EFI_VT_100_GUID.
+  #
+  gArmVirtTokenSpaceGuid.PcdTerminalTypeGuidBuffer|{0x65, 0x60, 0xA6, 0xDF, 0x19, 0xB4, 0xD3, 0x11, 0x9A, 0x2D, 0x00, 0x90, 0x27, 0x3F, 0xC1, 0x4D}|VOID*|0x00000007
+
+[PcdsDynamic, PcdsFixedAtBuild]
+  #
+  # ARM PSCI function invocations can be done either through hypervisor
+  # calls (HVC) or secure monitor calls (SMC).
+  # PcdArmPsciMethod == 1 : use HVC
+  # PcdArmPsciMethod == 2 : use SMC
+  #
+  gArmVirtTokenSpaceGuid.PcdArmPsciMethod|0|UINT32|0x00000003
+
+  gArmVirtTokenSpaceGuid.PcdFwCfgSelectorAddress|0x0|UINT64|0x00000004
+  gArmVirtTokenSpaceGuid.PcdFwCfgDataAddress|0x0|UINT64|0x00000005
+  gArmVirtTokenSpaceGuid.PcdFwCfgDmaAddress|0x0|UINT64|0x00000009
+
+  #
+  # Supported GIC revision (2, 3, ...)
+  #
+  gArmVirtTokenSpaceGuid.PcdArmGicRevision|0x0|UINT32|0x00000008
+
+[PcdsFeatureFlag]
+  #
+  # "Map PCI MMIO as Cached"
+  #
+  # Due to the way Stage1 and Stage2 mappings are combined on Aarch64, and
+  # because KVM -- for the time being -- does not try to interfere with the
+  # Stage1 mappings, we must not set EFI_MEMORY_UC for emulated PCI MMIO
+  # regions.
+  #
+  # EFI_MEMORY_UC is mapped to Device-nGnRnE, and that Stage1 attribute would
+  # direct guest writes to host DRAM immediately, bypassing the cache
+  # regardless of Stage2 attributes. However, QEMU's reads of the same range
+  # can easily be served from the (stale) CPU cache.
+  #
+  # Setting this PCD to TRUE will use EFI_MEMORY_WB for mapping PCI MMIO
+  # regions, which ensures that guest writes to such regions go through the CPU
+  # cache. Strictly speaking this is wrong, but it is needed as a temporary
+  # workaround for emulated PCI devices. Setting the PCD to FALSE results in
+  # the theoretically correct EFI_MEMORY_UC mapping, and should be the long
+  # term choice, especially with assigned devices.
+  #
+  # The default is to turn off the kludge; DSC's can selectively enable it.
+  #
+  gArmVirtTokenSpaceGuid.PcdKludgeMapPciMmioAsCached|FALSE|BOOLEAN|0x00000006
