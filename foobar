@@ -1,6 +1,0 @@
-[submodule "edk2"]
-	path = edk2
-	url = git://git.infradead.org/users/dwmw2/edk2.git
-[submodule "openssl"]
-	path = openssl
-	url = git://git.infradead.org/users/dwmw2/openssl.git
