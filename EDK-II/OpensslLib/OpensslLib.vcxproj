@@ -23,7 +23,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalOptions>/wd4133 /wd4244 /wd4245 /wd4267 /wd4701 /wd4305 /wd4306 /wd4702 /wd4706 /wd4311 /wd4090 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/wd4133 /wd4244 /wd4245 /wd4267 /wd4701 /wd4305 /wd4306 /wd4702 /wd4706 /wd4311 /wd4090 /wd4146%(AdditionalOptions)</AdditionalOptions>
       <PreprocessorDefinitions>L_ENDIAN;OPENSSL_SMALL_FOOTPRINT;strdup=</PreprocessorDefinitions>
       <UndefinePreprocessorDefinitions>_WIN32;_WIN64;_MSC_VER</UndefinePreprocessorDefinitions>
       <ForcedIncludeFiles>opensslconf.h</ForcedIncludeFiles>
@@ -80,8 +80,6 @@
     <ClCompile Include="..\..\openssl\crypto\des\cfb_enc.c" />
     <ClCompile Include="..\..\openssl\crypto\des\ecb3_enc.c" />
     <ClCompile Include="..\..\openssl\crypto\des\ecb_enc.c" />
-    <ClCompile Include="..\..\openssl\crypto\des\enc_read.c" />
-    <ClCompile Include="..\..\openssl\crypto\des\enc_writ.c" />
     <ClCompile Include="..\..\openssl\crypto\des\fcrypt.c" />
     <ClCompile Include="..\..\openssl\crypto\des\ofb64enc.c" />
     <ClCompile Include="..\..\openssl\crypto\des\ofb_enc.c" />
@@ -96,7 +94,6 @@
     <ClCompile Include="..\..\openssl\crypto\des\str2key.c" />
     <ClCompile Include="..\..\openssl\crypto\des\cfb64ede.c" />
     <ClCompile Include="..\..\openssl\crypto\des\ofb64ede.c" />
-    <ClCompile Include="..\..\openssl\crypto\des\read2pwd.c" />
     <ClCompile Include="..\..\openssl\crypto\aes\aes_core.c" />
     <ClCompile Include="..\..\openssl\crypto\aes\aes_misc.c" />
     <ClCompile Include="..\..\openssl\crypto\aes\aes_ecb.c" />
@@ -186,7 +183,6 @@
     <ClCompile Include="..\..\openssl\crypto\dso\dso_dlfcn.c" />
     <ClCompile Include="..\..\openssl\crypto\dso\dso_err.c" />
     <ClCompile Include="..\..\openssl\crypto\dso\dso_lib.c" />
-    <ClCompile Include="..\..\openssl\crypto\dso\dso_null.c" />
     <ClCompile Include="..\..\openssl\crypto\dso\dso_openssl.c" />
     <ClCompile Include="..\..\openssl\crypto\dso\dso_win32.c" />
     <ClCompile Include="..\..\openssl\crypto\dso\dso_vms.c" />
@@ -195,6 +191,7 @@
     <ClCompile Include="..\..\openssl\crypto\bio\bio_lib.c" />
     <ClCompile Include="..\..\openssl\crypto\bio\bio_cb.c" />
     <ClCompile Include="..\..\openssl\crypto\bio\bio_err.c" />
+    <ClCompile Include="..\..\openssl\crypto\bio\bio_meth.c" />
     <ClCompile Include="..\..\openssl\crypto\bio\bss_mem.c" />
     <ClCompile Include="..\..\openssl\crypto\bio\bss_null.c" />
     <ClCompile Include="..\..\openssl\crypto\bio\bss_fd.c" />
@@ -222,8 +219,6 @@
     <ClCompile Include="..\..\openssl\crypto\rand\rand_egd.c" />
     <ClCompile Include="..\..\openssl\crypto\rand\rand_win.c" />
     <ClCompile Include="..\..\openssl\crypto\rand\rand_unix.c" />
-    <ClCompile Include="..\..\openssl\crypto\rand\rand_os2.c" />
-    <ClCompile Include="..\..\openssl\crypto\rand\rand_nw.c" />
     <ClCompile Include="..\..\openssl\crypto\err\err.c" />
     <ClCompile Include="..\..\openssl\crypto\err\err_all.c" />
     <ClCompile Include="..\..\openssl\crypto\err\err_prn.c" />
@@ -286,7 +281,7 @@
     <ClCompile Include="..\..\openssl\crypto\evp\e_chacha20_poly1305.c" />
     <ClCompile Include="..\..\openssl\crypto\evp\cmeth_lib.c" />
     <ClCompile Include="..\..\openssl\crypto\asn1\a_object.c" />
-    <ClCompile Include="..\..\openssl\crypto\asn1\a_bitstr.c" />
+    <ClCompile Include="..\..\openssl\crypto\asn1\a_bitstr.c"/>
     <ClCompile Include="..\..\openssl\crypto\asn1\a_utctm.c" />
     <ClCompile Include="..\..\openssl\crypto\asn1\a_gentm.c" />
     <ClCompile Include="..\..\openssl\crypto\asn1\a_time.c" />
@@ -305,7 +300,6 @@
     <ClCompile Include="..\..\openssl\crypto\asn1\a_strex.c" />
     <ClCompile Include="..\..\openssl\crypto\asn1\x_algor.c" />
     <ClCompile Include="..\..\openssl\crypto\asn1\x_val.c" />
-    <ClCompile Include="..\..\openssl\crypto\asn1\x_pubkey.c" />
     <ClCompile Include="..\..\openssl\crypto\asn1\x_sig.c" />
     <ClCompile Include="..\..\openssl\crypto\asn1\x_bignum.c" />
     <ClCompile Include="..\..\openssl\crypto\asn1\x_long.c" />
@@ -393,6 +387,7 @@
     <ClCompile Include="..\..\openssl\crypto\x509\x_attrib.c" />
     <ClCompile Include="..\..\openssl\crypto\x509\x_exten.c" />
     <ClCompile Include="..\..\openssl\crypto\x509\x_name.c" />
+    <ClCompile Include="..\..\openssl\crypto\x509\x_pubkey.c" />
     <ClCompile Include="..\..\openssl\crypto\x509v3\v3_bcons.c" />
     <ClCompile Include="..\..\openssl\crypto\x509v3\v3_bitst.c" />
     <ClCompile Include="..\..\openssl\crypto\x509v3\v3_conf.c" />
@@ -486,5 +481,9 @@
     <ClCompile Include="..\..\openssl\crypto\kdf\tls1_prf.c" />
     <ClCompile Include="..\..\openssl\crypto\kdf\kdf_err.c" />
     <ClCompile Include="..\..\openssl\crypto\kdf\hkdf.c" />
+    <ClCompile Include="..\..\openssl\crypto\blake2\blake2b.c"/>
+    <ClCompile Include="..\..\openssl\crypto\blake2\m_blake2b.c"/>
+    <ClCompile Include="..\..\openssl\crypto\blake2\blake2s.c"/>
+    <ClCompile Include="..\..\openssl\crypto\blake2\m_blake2s.c"/>
   </ItemGroup>
 </Project>

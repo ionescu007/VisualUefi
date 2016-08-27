@@ -170,4 +170,6 @@ For other feedback, you can reach me on Twitter at @aionescu
 
 		Fabrice Bellard and the QEMU team
 
+* The "openssl" directory contains a copy of https://www.openssl.org/source/openssl-1.1.0.tar.gz extracted with no modifications. It contains its own LICENSE file with licensing information, please read it.
+
 * The "edk2" submodule has its own licensing information, please read it.
