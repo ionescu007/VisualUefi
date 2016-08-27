@@ -15,18 +15,17 @@
     <CharacterSet>Unicode</CharacterSet>
     <ProjectGuid>{6F08C1AF-ECF2-472D-8ABA-686F8F21CA5E}</ProjectGuid>
   </PropertyGroup>
-  <ItemDefinitionGroup>
-    <ClCompile>
-      <AdditionalOptions>/wd4090 %(AdditionalOptions)</AdditionalOptions>
-      <UndefinePreprocessorDefinitions>_WIN32;_WIN64;_MSC_VER</UndefinePreprocessorDefinitions>
-    </ClCompile>
-  </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
   <Import Project="$(SolutionDir)\edk2.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+    <ClCompile>
+      <UndefinePreprocessorDefinitions>_WIN32;_WIN64;_MSC_VER</UndefinePreprocessorDefinitions>
+      <DisableSpecificWarnings>4090</DisableSpecificWarnings>
+    </ClCompile>
+  </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\edk2\CryptoPkg\Library\BaseCryptLib\Hash\CryptMd4.c" />
     <ClCompile Include="..\..\edk2\CryptoPkg\Library\BaseCryptLib\Hash\CryptMd5.c" />
