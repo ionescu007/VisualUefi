@@ -6,3 +6,4 @@ x64
 debugger/stderr.txt
 debugger/stdout.txt
 *.opendb
+openssl/include/internal/dso_conf.h
