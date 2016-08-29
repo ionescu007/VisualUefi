@@ -30,6 +30,9 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 #include <Protocol/SerialIo.h>
 #include <Protocol/UsbIo.h>
 
+#include <Pi/PiDxeCis.h>
+#include <Protocol/MpService.h>
+
 #include <Guid/PcAnsi.h>
 #include <Guid/GlobalVariable.h>
 #include <Guid/EventGroup.h>
@@ -68,3 +71,4 @@ EFI_GUID gEfiEventVirtualAddressChangeGuid = EFI_EVENT_GROUP_VIRTUAL_ADDRESS_CHA
 EFI_GUID gEfiUsbIoProtocolGuid = EFI_USB_IO_PROTOCOL_GUID;
 EFI_GUID gEfiSerialIoProtocolGuid = EFI_SERIAL_IO_PROTOCOL_GUID;
 
+EFI_GUID gEfiMpServiceProtocolGuid = EFI_MP_SERVICES_PROTOCOL_GUID;
