@@ -7,7 +7,7 @@ VisualUEFI is
 
 * A Solution and couple of Visual Studio 2015 Project Files to show two UEFI sample components: A UEFI Application, and a UEFI Boot Driver. The code is 100% EDK-II compatible, but built with VisualUEFI instead.
 
-* A working copy of QEMU64 2.5 for Windows, with a fairly recent UEFI 2.5 OVMF Secure Boot ROM. These will updated on an ongoing basis as needed. This is integrated with the Visual Studio 2015 Sample Solution so that pressing F5 will spin up the instance for testing.
+* A working copy of QEMU64 2.7 for Windows, with a fairly recent UEFI 2.6 OVMF Secure Boot ROM. These will updated on an ongoing basis as needed. This is integrated with the Visual Studio 2015 Sample Solution so that pressing F5 will spin up the instance for testing.
 
 ## Code Example
 
@@ -140,7 +140,7 @@ For other feedback, you can reach me on Twitter at @aionescu
 
 * For the "samples" and "edk-ii" directory, the following license applies:
 
-		Copyright (c) 2015, Alex Ionescu. All rights reserved.
+		Copyright (c) 2015-2016, Alex Ionescu. All rights reserved.
 		This program and the accompanying materials are licensed and made available under
 		the terms and conditions of the BSD License which accompanies this distribution. 
 		The full text of the license may be found at
