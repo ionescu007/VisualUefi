@@ -9,6 +9,8 @@ VisualUEFI is
 
 * A working copy of QEMU64 2.7 for Windows, with a fairly recent UEFI 2.6 OVMF Secure Boot ROM. These will updated on an ongoing basis as needed. This is integrated with the Visual Studio 2015 Sample Solution so that pressing F5 will spin up the instance for testing.
 
+If you would ike to know more about my research or work, I invite you check out my blog at http://www.alex-ionescu.com as well as my training & consulting company at http://www.windows-internals.com
+
 ## Code Example
 
 Here is a very simple example of a UEFI application communicating with a UEFI driver protocol. This sample is part of VisualUefi.
