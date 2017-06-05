@@ -37,6 +37,18 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 #include <Guid/GlobalVariable.h>
 #include <Guid/EventGroup.h>
 
+#include <Protocol/EfiShellInterface.h>
+#include <Protocol/EfiShell.h>
+#include <Protocol/EfiShellEnvironment2.h>
+#include <Protocol/EfiShellParameters.h>
+#include <Guid/FileInfo.h>
+#include <Protocol/UnicodeCollation.h>
+
+#include <Protocol/HiiDatabase.h>
+#include <Protocol/HiiString.h>
+#include <Protocol/HiiConfigRouting.h>
+#include <Protocol/FormBrowser2.h>
+
 EFI_GUID gEfiPciIoProtocolGuid = EFI_PCI_IO_PROTOCOL_GUID;
 EFI_GUID gEfiDriverDiagnosticsProtocolGuid = EFI_DRIVER_DIAGNOSTICS_PROTOCOL_GUID;
 EFI_GUID gEfiDriverDiagnostics2ProtocolGuid = EFI_DRIVER_DIAGNOSTICS2_PROTOCOL_GUID;
@@ -72,3 +84,17 @@ EFI_GUID gEfiUsbIoProtocolGuid = EFI_USB_IO_PROTOCOL_GUID;
 EFI_GUID gEfiSerialIoProtocolGuid = EFI_SERIAL_IO_PROTOCOL_GUID;
 
 EFI_GUID gEfiMpServiceProtocolGuid = EFI_MP_SERVICES_PROTOCOL_GUID;
+
+EFI_GUID gEfiShellInterfaceGuid = SHELL_INTERFACE_PROTOCOL_GUID;
+EFI_GUID gEfiShellProtocolGuid = EFI_SHELL_PROTOCOL_GUID;
+EFI_GUID gEfiFileInfoGuid = EFI_FILE_INFO_ID;
+EFI_GUID gEfiShellEnvironment2Guid = SHELL_ENVIRONMENT_PROTOCOL_GUID;
+EFI_GUID gEfiShellEnvironment2ExtGuid = EFI_SE_EXT_SIGNATURE_GUID;
+EFI_GUID gEfiSimpleFileSystemProtocolGuid = EFI_SIMPLE_FILE_SYSTEM_PROTOCOL_GUID;
+EFI_GUID gEfiShellParametersProtocolGuid = EFI_SHELL_PARAMETERS_PROTOCOL_GUID;
+EFI_GUID gEfiUnicodeCollation2ProtocolGuid = EFI_UNICODE_COLLATION_PROTOCOL2_GUID;
+
+EFI_GUID gHiiString = EFI_HII_STRING_PROTOCOL_GUID;
+EFI_GUID gHiiDatabase = EFI_HII_DATABASE_PROTOCOL_GUID;
+EFI_GUID gEfiFormBrowser2ProtocolGuid = EFI_FORM_BROWSER2_PROTOCOL_GUID;
+EFI_GUID gHiiConfigRouting = EFI_HII_CONFIG_ROUTING_PROTOCOL_GUID;

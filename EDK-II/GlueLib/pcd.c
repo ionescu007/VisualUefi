@@ -95,3 +95,6 @@ UINT8 _PCD_GET_MODE_8_PcdDefaultTerminalType = 0;
 
 UINT16 _PCD_GET_MODE_16_PcdHardwareErrorRecordLevel = 0;
 UINT16 _PCD_GET_MODE_16_PcdPlatformBootTimeOut = 0xffff;
+
+BOOLEAN _PCD_GET_MODE_BOOL_PcdShellLibAutoInitialize = FALSE;
+UINT16 _PCD_GET_MODE_16_PcdShellPrintBufferSize = 16000;

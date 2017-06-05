@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26127.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BaseLib", "BaseLib\BaseLib.vcxproj", "{7DEFAA61-169C-48B9-95B8-410B5493033B}"
 EndProject
@@ -49,6 +49,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BaseCryptLib", "BaseCryptLi
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IntrinsicLib", "IntrinsicLib\IntrinsicLib.vcxproj", "{74A1C96B-5DAD-4A89-AFA0-AEB6138C1A74}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UefiShellLib", "UefiShellLib\UefiShellLib.vcxproj", "{D71E4E3B-6239-4AD1-A1C8-272E8673F980}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UefiSortLib", "UefiSortLib\UefiSortLib.vcxproj", "{9B66ED85-72D6-4581-9A56-4E1F94D0C787}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UefiHiiLib", "UefiHiiLib\UefiHiiLib.vcxproj", "{53122BEE-9C19-4380-8B7F-B9D8FFA28AB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +105,12 @@ Global
 		{6F08C1AF-ECF2-472D-8ABA-686F8F21CA5E}.Release|x64.Build.0 = Release|x64
 		{74A1C96B-5DAD-4A89-AFA0-AEB6138C1A74}.Release|x64.ActiveCfg = Release|x64
 		{74A1C96B-5DAD-4A89-AFA0-AEB6138C1A74}.Release|x64.Build.0 = Release|x64
+		{D71E4E3B-6239-4AD1-A1C8-272E8673F980}.Release|x64.ActiveCfg = Release|x64
+		{D71E4E3B-6239-4AD1-A1C8-272E8673F980}.Release|x64.Build.0 = Release|x64
+		{9B66ED85-72D6-4581-9A56-4E1F94D0C787}.Release|x64.ActiveCfg = Release|x64
+		{9B66ED85-72D6-4581-9A56-4E1F94D0C787}.Release|x64.Build.0 = Release|x64
+		{53122BEE-9C19-4380-8B7F-B9D8FFA28AB0}.Release|x64.ActiveCfg = Release|x64
+		{53122BEE-9C19-4380-8B7F-B9D8FFA28AB0}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

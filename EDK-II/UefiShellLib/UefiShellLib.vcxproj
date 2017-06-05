@@ -9,30 +9,20 @@
   <PropertyGroup Label="Globals">
     <Keyword>Win32Proj</Keyword>
     <PlatformToolset>v141</PlatformToolset>
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <ProjectGuid>{DF325AB7-67A6-473E-93FF-16955AFBC063}</ProjectGuid>
+    <ProjectGuid>{D71E4E3B-6239-4AD1-A1C8-272E8673F980}</ProjectGuid>
     <WindowsTargetPlatformVersion>10.0.16190.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-  <Import Project="$(SolutionDir)\samples.props" />
+  <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  <Import Project="$(SolutionDir)\edk2.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
-  <ItemDefinitionGroup>
-    <Link>
-      <AdditionalDependencies>UefiDriverEntryPoint.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-  </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="drvname.c" />
-    <ClCompile Include="drvpnp.c" />
-    <ClCompile Include="drvmain.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="drv.h" />
-    <ClInclude Include="drvproto.h" />
+    <ClCompile Include="..\..\edk2\ShellPkg\Library\UefiShellLib\UefiShellLib.c" />
   </ItemGroup>
 </Project>

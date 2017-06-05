@@ -21,4 +21,7 @@ extern BOOLEAN _PCD_GET_MODE_BOOL_PcdDriverDiagnostics2Disable;
 extern UINT8 _PCD_GET_MODE_8_PcdDebugPropertyMask;
 extern UINT8 _PCD_GET_MODE_8_PcdDebugClearMemoryValue;
 
+extern BOOLEAN _PCD_GET_MODE_BOOL_PcdShellLibAutoInitialize;
+extern UINT16 _PCD_GET_MODE_16_PcdShellPrintBufferSize;
+
 extern CHAR8 *gEfiCallerBaseName;
