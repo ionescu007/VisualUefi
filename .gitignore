@@ -7,3 +7,5 @@ debugger/stderr.txt
 debugger/stdout.txt
 *.opendb
 openssl/include/internal/dso_conf.h
+/EDK-II/.vs
+/samples/.vs
