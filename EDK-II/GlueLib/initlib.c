@@ -55,6 +55,13 @@ UefiLibConstructor(
 
 EFI_STATUS
 EFIAPI
+UefiHiiServicesLibConstructor(
+IN EFI_HANDLE        ImageHandle,
+IN EFI_SYSTEM_TABLE  *SystemTable
+);
+
+EFI_STATUS
+EFIAPI
 DevicePathLibConstructor(
   IN EFI_HANDLE        ImageHandle,
   IN EFI_SYSTEM_TABLE  *SystemTable
