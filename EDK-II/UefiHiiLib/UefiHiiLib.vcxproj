@@ -26,5 +26,6 @@
     <ClCompile Include="..\..\edk2\MdeModulePkg\Library\UefiHiiLib\HiiLanguage.c" />
     <ClCompile Include="..\..\edk2\MdeModulePkg\Library\UefiHiiLib\HiiLib.c" />
     <ClCompile Include="..\..\edk2\MdeModulePkg\Library\UefiHiiLib\HiiString.c" />
+    <ClCompile Include="..\..\edk2\MdeModulePkg\Library\UefiHiiServicesLib\UefiHiiServicesLib.c" />
   </ItemGroup>
 </Project>
