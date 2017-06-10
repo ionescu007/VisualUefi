@@ -21,57 +21,64 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 EFI_STATUS
 EFIAPI
-UefiMain(
+UefiMain (
   IN EFI_HANDLE        ImageHandle,
   IN EFI_SYSTEM_TABLE  *SystemTable
   );
 
 EFI_STATUS
 EFIAPI
-UefiUnload(
+UefiUnload (
   IN EFI_HANDLE        ImageHandle
   );
 
 EFI_STATUS
 EFIAPI
-UefiBootServicesTableLibConstructor(
+UefiBootServicesTableLibConstructor (
   IN EFI_HANDLE        ImageHandle,
   IN EFI_SYSTEM_TABLE  *SystemTable
 );
 
 EFI_STATUS
 EFIAPI
-UefiRuntimeServicesTableLibConstructor(
+UefiRuntimeServicesTableLibConstructor (
   IN EFI_HANDLE        ImageHandle,
   IN EFI_SYSTEM_TABLE  *SystemTable
 );
 
 EFI_STATUS
 EFIAPI
-UefiLibConstructor(
+UefiLibConstructor (
   IN EFI_HANDLE        ImageHandle,
   IN EFI_SYSTEM_TABLE  *SystemTable
 );
 
 EFI_STATUS
 EFIAPI
-DevicePathLibConstructor(
+DevicePathLibConstructor (
   IN EFI_HANDLE        ImageHandle,
   IN EFI_SYSTEM_TABLE  *SystemTable
 );
 
 EFI_STATUS
 EFIAPI
-RuntimeDriverLibConstruct(
+RuntimeDriverLibConstruct (
   IN EFI_HANDLE        ImageHandle,
   IN EFI_SYSTEM_TABLE  *SystemTable
 );
 
 EFI_STATUS
 EFIAPI
-RuntimeDriverLibDeconstruct(
+RuntimeDriverLibDeconstruct (
   IN EFI_HANDLE        ImageHandle,
   IN EFI_SYSTEM_TABLE  *SystemTable
+);
+
+EFI_STATUS
+EFIAPI
+UefiHiiServicesLibConstructor (
+    IN EFI_HANDLE        ImageHandle,
+    IN EFI_SYSTEM_TABLE  *SystemTable
 );
 
 /**
@@ -102,6 +109,8 @@ ProcessLibraryConstructorList (
   DevicePathLibConstructor(ImageHandle, SystemTable);
 
 //  RuntimeDriverLibConstruct(ImageHandle, SystemTable);
+
+  UefiHiiServicesLibConstructor(ImageHandle, SystemTable);
 
   return EFI_SUCCESS;
 }
