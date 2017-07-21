@@ -142,7 +142,10 @@ Exit:
     //
     // Close our file handle
     //
-    ShellCloseFile(&fileHandle);
+    if (fileHandle != NULL)
+    {
+        ShellCloseFile(&fileHandle);
+    }
 
     //
     // Sample complete!
