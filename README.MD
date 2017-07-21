@@ -2,12 +2,12 @@
 
 VisualUEFI is 
 
-* A Solution and set of Visual Studio 2015 Project Files to allow building the official EDK-II without the use of inf files, python and 50 other build tools, a custom dependency tracker and build system, and twenty other custom pieces of code.
+* A Solution and set of Visual Studio Project Files to allow building the official EDK-II without the use of inf files, python and 50 other build tools, a custom dependency tracker and build system, and twenty other custom pieces of code.
   The EDK-II is present as a submodule, directly from the official TianoCore Tree, and no changes are done to it.
 
-* A Solution and couple of Visual Studio 2015 Project Files to show two UEFI sample components: A UEFI Application, and a UEFI Boot Driver. The code is 100% EDK-II compatible, but built with VisualUEFI instead.
+* A Solution and couple of Visual Studio Project Files to show two UEFI sample components: A UEFI Application, and a UEFI Boot Driver. The code is 100% EDK-II compatible, but built with VisualUEFI instead.
 
-* A working copy of QEMU64 2.7 for Windows, with a fairly recent UEFI 2.6 OVMF Secure Boot ROM. These will updated on an ongoing basis as needed. This is integrated with the Visual Studio 2015 Sample Solution so that pressing F5 will spin up the instance for testing.
+* A working copy of QEMU64 2.7 for Windows, with a fairly recent UEFI 2.6 OVMF Secure Boot ROM. These will updated on an ongoing basis as needed. This is integrated with the Visual Studio Sample Solution so that pressing F5 will spin up the instance for testing.
 
 If you would ike to know more about my research or work, I invite you check out my blog at http://www.alex-ionescu.com as well as my training & consulting company, Winsider Seminars & Solutions Inc., at http://www.windows-internals.com.
 
@@ -107,9 +107,9 @@ party tools, and includes the latest QEMU and OVMF w/ SecureBoot packages for ba
 
 ## Installation
 
-You should be able to open the EDK-II.SLN file and build without any issues in Visual Studio 2015. WDK or other 3rd party installations are not needed.
+You should be able to open the EDK-II.SLN file and build without any issues in either Visual Studio 2015 or 2017. WDK or other 3rd party installations are not needed.
 
-Once the EDK-II libraries are built, you should be able to open the SAMPLES.SLN file and build the three samples, which will create UefiApplication.efi, UefiDriver.efi and FtdiUsbSerialDxe.efi
+Once the EDK-II libraries are built, you should be able to open the SAMPLES.SLN file and build the samples, which will create UefiApplication.efi, UefiDriver.efi, Cryptest.efi, and FtdiUsbSerialDxe.efi
 
 ## Documentation
 
