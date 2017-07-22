@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Release|x64">
       <Configuration>Release</Configuration>
@@ -8,20 +8,18 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <Keyword>Win32Proj</Keyword>
-    <PlatformToolset>v141</PlatformToolset>
-    <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
     <ProjectGuid>{6F08C1AF-ECF2-472D-8ABA-686F8F21CA5E}</ProjectGuid>
-    <WindowsTargetPlatformVersion>10.0.16190.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="$(SolutionDir)\edk2.default.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
   <Import Project="$(SolutionDir)\edk2.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  <PropertyGroup>
+    <IncludePath>$(EDK_PATH)\CryptoPkg\Library\Include;$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib;$(OPENSSL_PATH);$(OPENSSL_PATH)\crypto\include;$(OPENSSL_PATH)\crypto\modes;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
       <UndefinePreprocessorDefinitions>_WIN32;_WIN64;_MSC_VER</UndefinePreprocessorDefinitions>
@@ -29,28 +27,28 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\edk2\CryptoPkg\Library\BaseCryptLib\Hash\CryptMd4.c" />
-    <ClCompile Include="..\..\edk2\CryptoPkg\Library\BaseCryptLib\Hash\CryptMd5.c" />
-    <ClCompile Include="..\..\edk2\CryptoPkg\Library\BaseCryptLib\Hash\CryptSha1.c" />
-    <ClCompile Include="..\..\edk2\CryptoPkg\Library\BaseCryptLib\Hash\CryptSha256.c" />
-    <ClCompile Include="..\..\edk2\CryptoPkg\Library\BaseCryptLib\Hash\CryptSha512.c" />
-    <ClCompile Include="..\..\edk2\CryptoPkg\Library\BaseCryptLib\Hmac\CryptHmacMd5.c" />
-    <ClCompile Include="..\..\edk2\CryptoPkg\Library\BaseCryptLib\Hmac\CryptHmacSha1.c" />
-    <ClCompile Include="..\..\edk2\CryptoPkg\Library\BaseCryptLib\Cipher\CryptAes.c" />
-    <ClCompile Include="..\..\edk2\CryptoPkg\Library\BaseCryptLib\Cipher\CryptTdes.c" />
-    <ClCompile Include="..\..\edk2\CryptoPkg\Library\BaseCryptLib\Cipher\CryptArc4.c" />
-    <ClCompile Include="..\..\edk2\CryptoPkg\Library\BaseCryptLib\Pk\CryptRsaBasic.c" />
-    <ClCompile Include="..\..\edk2\CryptoPkg\Library\BaseCryptLib\Pk\CryptRsaExt.c" />
-    <ClCompile Include="..\..\edk2\CryptoPkg\Library\BaseCryptLib\Pk\CryptPkcs7Sign.c" />
-    <ClCompile Include="..\..\edk2\CryptoPkg\Library\BaseCryptLib\Pk\CryptPkcs7Verify.c" />
-    <ClCompile Include="..\..\edk2\CryptoPkg\Library\BaseCryptLib\Pk\CryptDh.c" />
-    <ClCompile Include="..\..\edk2\CryptoPkg\Library\BaseCryptLib\Pk\CryptX509.c" />
-    <ClCompile Include="..\..\edk2\CryptoPkg\Library\BaseCryptLib\Pk\CryptAuthenticode.c" />
-    <ClCompile Include="..\..\edk2\CryptoPkg\Library\BaseCryptLib\Pk\CryptTs.c" />
-    <ClCompile Include="..\..\edk2\CryptoPkg\Library\BaseCryptLib\Pem\CryptPem.c" />
-    <ClCompile Include="..\..\edk2\CryptoPkg\Library\BaseCryptLib\Rand\CryptRandTsc.c" />
-    <ClCompile Include="..\..\edk2\CryptoPkg\Library\BaseCryptLib\SysCall\CrtWrapper.c" />
-    <ClCompile Include="..\..\edk2\CryptoPkg\Library\BaseCryptLib\SysCall\TimerWrapper.c" />
-    <ClCompile Include="..\..\edk2\CryptoPkg\Library\BaseCryptLib\SysCall\BaseMemAllocation.c" />
+    <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Hash\CryptMd4.c" />
+    <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Hash\CryptMd5.c" />
+    <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Hash\CryptSha1.c" />
+    <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Hash\CryptSha256.c" />
+    <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Hash\CryptSha512.c" />
+    <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Hmac\CryptHmacMd5.c" />
+    <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Hmac\CryptHmacSha1.c" />
+    <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Cipher\CryptAes.c" />
+    <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Cipher\CryptTdes.c" />
+    <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Cipher\CryptArc4.c" />
+    <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Pk\CryptRsaBasic.c" />
+    <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Pk\CryptRsaExt.c" />
+    <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Pk\CryptPkcs7Sign.c" />
+    <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Pk\CryptPkcs7Verify.c" />
+    <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Pk\CryptDh.c" />
+    <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Pk\CryptX509.c" />
+    <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Pk\CryptAuthenticode.c" />
+    <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Pk\CryptTs.c" />
+    <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Pem\CryptPem.c" />
+    <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Rand\CryptRandTsc.c" />
+    <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\SysCall\CrtWrapper.c" />
+    <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\SysCall\TimerWrapper.c" />
+    <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\SysCall\BaseMemAllocation.c" />
   </ItemGroup>
 </Project>

@@ -1,20 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets" />
-  <PropertyGroup Label="UserMacros">
-    <EDK_PATH>$(SolutionDir)..\edk2</EDK_PATH>
-  </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifest>
-    </GenerateManifest>
-    <TargetExt>.efi</TargetExt>
+    <GenerateManifest />
     <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(TargetName)\</IntDir>
-    <IncludePath>$(EDK_PATH)\MdePkg\Include;$(EDK_PATH)\MdePkg\Include\X64;$(EDK_PATH)\ShellPkg\Include</IncludePath>
-    <LibraryPath>$(SolutionDir)..\EDK-II\x64\Release\;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <TargetExt>.efi</TargetExt>
   </PropertyGroup>
   <PropertyGroup>
     <LocalDebuggerCommand>..\debugger\qemu.exe</LocalDebuggerCommand>
-    <LocalDebuggerCommandArguments>-drive if=pflash,format=raw,file=OVMF-pure-efi.fd -drive file=fat:rw:..\samples\x64\release\,media=disk,if=virtio,format=raw -m 512 -M q35 -nodefaults -vga std</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>-drive if=pflash,format=raw,file=OVMF-pure-efi.fd -drive file=fat:rw:..\samples\$(Platform)\$(Configuration)\,media=disk,if=virtio,format=raw -m 512 -M q35 -nodefaults -vga std</LocalDebuggerCommandArguments>
     <LocalDebuggerWorkingDirectory>..\..\debugger</LocalDebuggerWorkingDirectory>
     <LocalDebuggerDebuggerType>Script</LocalDebuggerDebuggerType>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
@@ -50,8 +45,7 @@
       <SubSystem>EFI Boot Service Driver</SubSystem>
       <Driver>Driver</Driver>
       <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>
-      </EnableCOMDATFolding>
+      <EnableCOMDATFolding />
       <LinkTimeCodeGeneration>UseFastLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <BaseAddress>0</BaseAddress>
       <SectionAlignment>32</SectionAlignment>
@@ -72,10 +66,4 @@
       <EntryPointSymbol>EfiMain</EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <BuildMacro Include="EDK_PATH">
-      <Value>$(EDK_PATH)</Value>
-      <EnvironmentVariable>true</EnvironmentVariable>
-    </BuildMacro>
-  </ItemGroup>
 </Project>
