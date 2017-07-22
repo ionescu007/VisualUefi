@@ -39,8 +39,7 @@
       <SubSystem>EFI Boot Service Driver</SubSystem>
       <Driver>Driver</Driver>
       <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>
-      </EnableCOMDATFolding>
+      <EnableCOMDATFolding />
       <LinkTimeCodeGeneration>UseFastLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <BaseAddress>0</BaseAddress>
       <SectionAlignment>32</SectionAlignment>

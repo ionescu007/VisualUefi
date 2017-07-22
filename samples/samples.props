@@ -2,8 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup>
-    <GenerateManifest>
-    </GenerateManifest>
+    <GenerateManifest />
     <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(TargetName)\</IntDir>
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
     <TargetExt>.efi</TargetExt>
@@ -46,8 +45,7 @@
       <SubSystem>EFI Boot Service Driver</SubSystem>
       <Driver>Driver</Driver>
       <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>
-      </EnableCOMDATFolding>
+      <EnableCOMDATFolding />
       <LinkTimeCodeGeneration>UseFastLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <BaseAddress>0</BaseAddress>
       <SectionAlignment>32</SectionAlignment>
