@@ -120,6 +120,7 @@ UefiMain (
                                     0);
     if (EFI_ERROR(efiStatus))
     {
+        fileHandle = NULL;
         goto Exit;
     }
 
