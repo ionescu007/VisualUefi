@@ -31,7 +31,7 @@
       <!--<ForcedIncludeFiles>CrtLibSupport.h</ForcedIncludeFiles>-->
     </ClCompile>
     <CustomBuildStep>
-      <Command>copy "$(EDK_PATH)\CryptoPkg\Library\Include\openssl\opensslconf.h" "$(OPENSSL_PATH)\include\openssl\opensslconf.h" /y
+      <Command>copy "$(EDK_PATH)\CryptoPkg\Library\OpensslLib\opensslconf.h" "$(OPENSSL_PATH)\include\openssl\opensslconf.h" /y
 type NUL &gt; "$(OPENSSL_PATH)\include\internal\dso_conf.h"</Command>
       <Message>Copying OpenSSL Configuration Header...</Message>
       <Outputs>$(OPENSSL_PATH)\include\openssl\opensslconf.h</Outputs>
