@@ -23,7 +23,7 @@
   <ItemDefinitionGroup>
     <ClCompile>
       <AdditionalOptions>/wd4133 /wd4244 /wd4245 /wd4267 /wd4701 /wd4305 /wd4306 /wd4702 /wd4706 /wd4311 /wd4090 /wd4146 %(AdditionalOptions)</AdditionalOptions>
-      <PreprocessorDefinitions>L_ENDIAN;OPENSSL_SMALL_FOOTPRINT;NO_SYSLOG;strdup=</PreprocessorDefinitions>
+      <PreprocessorDefinitions>L_ENDIAN;OPENSSL_SMALL_FOOTPRINT;NO_SYSLOG</PreprocessorDefinitions>
       <UndefinePreprocessorDefinitions>_WIN32;_WIN64;_MSC_VER</UndefinePreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
