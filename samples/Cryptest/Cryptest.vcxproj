@@ -29,6 +29,7 @@
     <ClCompile Include="$(EDK_PATH)\CryptoPkg\Application\Cryptest\BlockCipherVerify.c" />
     <ClCompile Include="$(EDK_PATH)\CryptoPkg\Application\Cryptest\RsaVerify.c" />
     <ClCompile Include="$(EDK_PATH)\CryptoPkg\Application\Cryptest\RsaVerify2.c" />
+    <ClCompile Include="$(EDK_PATH)\CryptoPkg\Application\Cryptest\Pkcs5Pbkdf2Verify.c" />
     <ClCompile Include="$(EDK_PATH)\CryptoPkg\Application\Cryptest\AuthenticodeVerify.c" />
     <ClCompile Include="$(EDK_PATH)\CryptoPkg\Application\Cryptest\TSVerify.c" />
     <ClCompile Include="$(EDK_PATH)\CryptoPkg\Application\Cryptest\DhVerify.c" />

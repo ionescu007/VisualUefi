@@ -34,11 +34,13 @@
     <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Hash\CryptSha512.c" />
     <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Hmac\CryptHmacMd5.c" />
     <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Hmac\CryptHmacSha1.c" />
+    <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Hmac\CryptHmacSha256.c" />
     <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Cipher\CryptAes.c" />
     <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Cipher\CryptTdes.c" />
     <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Cipher\CryptArc4.c" />
     <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Pk\CryptRsaBasic.c" />
     <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Pk\CryptRsaExt.c" />
+    <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Pk\CryptPkcs5Pbkdf2.c" />
     <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Pk\CryptPkcs7Sign.c" />
     <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Pk\CryptPkcs7Verify.c" />
     <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Pk\CryptDh.c" />
