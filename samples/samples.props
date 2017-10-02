@@ -9,7 +9,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <LocalDebuggerCommand>..\debugger\qemu.exe</LocalDebuggerCommand>
-    <LocalDebuggerCommandArguments>-drive if=pflash,format=raw,file=OVMF-pure-efi.fd -drive file=fat:rw:..\samples\$(Platform)\$(Configuration)\,media=disk,if=virtio,format=raw -m 512 -M q35 -nodefaults -vga std</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>-drive file=OVMF_CODE-need-smm.fd,if=pflash,format=raw,unit=0,readonly=on -drive file=OVMF_VARS-need-smm.fd,if=pflash,format=raw,unit=1 -drive file=fat:rw:..\samples\$(Platform)\$(Configuration)\,media=disk,if=virtio,format=raw -drive file=UefiShell.iso,format=raw -m 512 -machine q35,smm=on -nodefaults -vga std -global driver=cfi.pflash01,property=secure,value=on -global ICH9-LPC.disable_s3=1</LocalDebuggerCommandArguments>
     <LocalDebuggerWorkingDirectory>..\..\debugger</LocalDebuggerWorkingDirectory>
     <LocalDebuggerDebuggerType>Script</LocalDebuggerDebuggerType>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
