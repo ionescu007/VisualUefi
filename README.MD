@@ -2,14 +2,14 @@
 
 VisualUEFI is 
 
-* A Solution and set of Visual Studio Project Files to allow building the official EDK-II without the use of inf files, python and 50 other build tools, a custom dependency tracker and build system, and twenty other custom pieces of code.
-  The EDK-II is present as a submodule, directly from the official TianoCore Tree, and no changes are done to it.
+* A Solution and set of Visual Studio Project Files to allow building the official EDK-II (including OpenSSL 1.1.0e) without the use of inf files, python and 50 other build tools, a custom dependency tracker and build system, and twenty other custom pieces of code.
+  The EDK-II and OpenSSL are present as submodules, directly from the official TianoCore Tree, and no changes are done to them.
 
-* A Solution and couple of Visual Studio Project Files to show two UEFI sample components: A UEFI Application, and a UEFI Boot Driver. The code is 100% EDK-II compatible, but built with VisualUEFI instead.
+* A Solution and couple of Visual Studio Project Files to show four UEFI sample components: An UEFI Application and associated UEFI Boot Driver, the EDK-II Sample FtdiUsbSerialDxe Driver, and the EDK-II Sample Cryptest Application which uses OpenSSL 1.1.0e. The code is 100% EDK-II compatible, but built with VisualUEFI instead.
 
-* A working copy of QEMU64 2.7 for Windows, with a fairly recent UEFI 2.6 OVMF Secure Boot ROM. These will updated on an ongoing basis as needed. This is integrated with the Visual Studio Sample Solution so that pressing F5 will spin up the instance for testing.
+* A working and FAST copy of QEMU64 2.10 for Windows, with a fairly recent UEFI 2.6 OVMF Secure Boot ROM which includes SMM support and an actual protected flash for enrolling PK/KEK/DB/DBX keys. These will updated on an ongoing basis as needed. This is integrated with the Visual Studio Sample Solution so that pressing F5 will spin up the instance for testing.
 
-If you would ike to know more about my research or work, I invite you check out my blog at http://www.alex-ionescu.com as well as my training & consulting company, Winsider Seminars & Solutions Inc., at http://www.windows-internals.com.
+If you would like to know more about my research or work, I invite you check out my blog at http://www.alex-ionescu.com as well as my training & consulting company, Winsider Seminars & Solutions Inc., at http://www.windows-internals.com.
 
 ## Code Example
 
@@ -66,30 +66,85 @@ UefiMain (
     )
 {
     EFI_STATUS efiStatus;
+    SHELL_FILE_HANDLE fileHandle;
+    UINT8 buffer[4];
+    UINTN readSize;
     EFI_SAMPLE_DRIVER_PROTOCOL* sampleProtocol;
 
-    //
-    // Print stuff out
-    //
+    // 
+    // Print stuff out 
+    // 
+    fileHandle = NULL;
     Print(L"Hello World! My handle is %lx and System Table is at %p\n",
           ImageHandle, SystemTable);
 
     //
-    // Check if the sample driver is loaded
+    // Initialize the shell library
     //
-    efiStatus = gBS->LocateProtocol(&gEfiSampleDriverProtocolGuid, NULL, &sampleProtocol);
+    efiStatus = ShellInitialize();
     if (EFI_ERROR(efiStatus))
     {
+        Print(L"Failed to initialize shell: %lx\n", efiStatus);
         goto Exit;
     }
 
     //
-    // Print the value and exit
+    // Open ourselves
     //
+    efiStatus = ShellOpenFileByName(L"fs1:\\UefiApplication.efi",
+                                    &fileHandle,
+                                    EFI_FILE_MODE_READ,
+                                    0);
+    if (EFI_ERROR(efiStatus))
+    {
+        Print(L"Failed to open ourselves: %lx\n", efiStatus);
+        fileHandle = NULL;
+        goto Exit;
+    }
+
+    //
+    // Read 4 bytes at the top (MZ header)
+    //
+    readSize = sizeof(buffer);
+    efiStatus = ShellReadFile(fileHandle, &readSize, &buffer);
+    if (EFI_ERROR(efiStatus))
+    {
+        Print(L"Failed to read ourselves: %lx\n", efiStatus);
+        goto Exit;
+    }
+
+    //
+    // Print it
+    //
+    Print(L"Data: %lx\n", *(UINT32*)buffer);
+
+    // 
+    // Check if the sample driver is loaded 
+    // 
+    efiStatus = gBS->LocateProtocol(&gEfiSampleDriverProtocolGuid, NULL, &sampleProtocol);
+    if (EFI_ERROR(efiStatus))
+    {
+        Print(L"Failed to locate our driver: %lx\n", efiStatus);
+        goto Exit;
+    }
+
+    // 
+    // Print the value and exit 
+    // 
     Print(L"Sample driver is loaded: %lx\n", sampleProtocol->SampleValue);
-    efiStatus = EFI_SUCCESS;
 
 Exit:
+    //
+    // Close our file handle
+    //
+    if (fileHandle != NULL)
+    {
+        ShellCloseFile(&fileHandle);
+    }
+
+    //
+    // Sample complete!
+    //
     return efiStatus;
 }
 
@@ -117,11 +172,11 @@ Please refer to EDK-II/TianoCore for all documentation/help regarding EDK-II.
 
 ## Tests
 
-You can press F5 (Run/Debug) from within the Sample Solution, which should spin up the QEMU instance with 512MB of ram, and your release directory as a virtual file system accessible through fs0:
+You can press F5 (Run/Debug) from within the Sample Solution, which should spin up the QEMU instance with 512MB of RAM, and your release directory as a virtual file system accessible through fs1:
 
 You can then try loading the driver as follows:
 
-	* Load fs0:\UefiDriver.efi
+	* load fs1:\UefiDriver.efi
 
 You can verify its presence by using either of these commands:
 
@@ -130,7 +185,7 @@ You can verify its presence by using either of these commands:
 
 You can also launch the sample application, which should find the driver:
 
-	* fs0:\UefiApplication.efi
+	* fs1:\UefiApplication.efi
 
 ## Contributors
 
@@ -142,7 +197,7 @@ For other feedback, you can reach me on Twitter at @aionescu
 
 * For the "samples" and "edk-ii" directory, the following license applies:
 
-		Copyright (c) 2015-2016, Alex Ionescu. All rights reserved.
+		Copyright (c) 2015-2017, Alex Ionescu. All rights reserved.
 		This program and the accompanying materials are licensed and made available under
 		the terms and conditions of the BSD License which accompanies this distribution. 
 		The full text of the license may be found at
@@ -172,6 +227,6 @@ For other feedback, you can reach me on Twitter at @aionescu
 
 		Fabrice Bellard and the QEMU team
 
-* The "openssl" directory contains a copy of https://www.openssl.org/source/openssl-1.1.0.tar.gz extracted with no modifications. It contains its own LICENSE file with licensing information, please read it.
+* The "openssl" submodule has its own licensing information, please read it.
 
 * The "edk2" submodule has its own licensing information, please read it.
