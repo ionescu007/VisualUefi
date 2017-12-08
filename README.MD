@@ -157,7 +157,7 @@ tools must be ran -- including dependencies on Python, Ruby, and Perl. For devel
 the ability to quickly jump into UEFI development. Additionally, the EDK-II's default "test" environment is to build a Windows "NT32" layer around your application and running it as a command line executable. While this might
 work for very simple applications, it doesn't reliably provide an environment for testing DXE drivers, runtime services, and more.
 
-VisualUefi aims to bridge these gaps by compiling 100% unmodified EDK-II libraries with a proper Visual Studio build envioronment, adding some VisualUefi-specific glue to support building within Visual Studio without 3rd
+VisualUefi aims to bridge these gaps by compiling 100% unmodified EDK-II libraries with a proper Visual Studio build environment, adding some VisualUefi-specific glue to support building within Visual Studio without 3rd
 party tools, and includes the latest QEMU and OVMF w/ SecureBoot packages for bare-metal testing of UEFI, without relying on Windows emulation.
 
 ## Installation
