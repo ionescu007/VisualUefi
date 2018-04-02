@@ -9,3 +9,5 @@ debugger/stdout.txt
 openssl/include/internal/dso_conf.h
 /EDK-II/.vs
 /samples/.vs
+/EDK-II/EDK-II.VC.db
+/samples/samples.VC.db
