@@ -227,6 +227,4 @@ For other feedback, you can reach me on Twitter at @aionescu
 
 		Fabrice Bellard and the QEMU team
 
-* The "openssl" submodule has its own licensing information, please read it.
-
 * The "edk2" submodule has its own licensing information, please read it.
