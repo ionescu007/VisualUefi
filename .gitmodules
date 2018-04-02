@@ -4,4 +4,4 @@
 [submodule "openssl"]
 	path = openssl
 	url = https://github.com/openssl/openssl.git
-	branch = OpenSSL_1_1_0e
+	branch = OpenSSL_1_1_0h
