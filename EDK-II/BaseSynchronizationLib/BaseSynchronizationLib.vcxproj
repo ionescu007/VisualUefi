@@ -13,16 +13,16 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <Import Project="$(SolutionDir)\edk2.default.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-  <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  <Import Project="$(SolutionDir)\MSBuild\nasm.props" />
   <Import Project="$(SolutionDir)\edk2.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  <Import Project="$(SolutionDir)\MSBuild\nasm.targets" />
   <ItemGroup>
     <ClCompile Include="$(EDK_PATH)\MdePkg\Library\BaseSynchronizationLib\SynchronizationMsc.c" />
     <ClCompile Include="$(EDK_PATH)\MdePkg\Library\BaseSynchronizationLib\X64\InterlockedCompareExchange16.c" />
     <ClCompile Include="$(EDK_PATH)\MdePkg\Library\BaseSynchronizationLib\X64\InterlockedCompareExchange32.c" />
     <ClCompile Include="$(EDK_PATH)\MdePkg\Library\BaseSynchronizationLib\X64\InterlockedCompareExchange64.c" />
-    <ClCompile Include="$(EDK_PATH)\MdePkg\Library\BaseSynchronizationLib\X64\InterlockedDecrement.c" />
-    <ClCompile Include="$(EDK_PATH)\MdePkg\Library\BaseSynchronizationLib\X64\InterlockedIncrement.c" />
+    <NASM Include="$(EDK_PATH)\MdePkg\Library\BaseSynchronizationLib\X64\InterlockedDecrement.nasm" />
+    <NASM Include="$(EDK_PATH)\MdePkg\Library\BaseSynchronizationLib\X64\InterlockedIncrement.nasm" />
   </ItemGroup>
 </Project>

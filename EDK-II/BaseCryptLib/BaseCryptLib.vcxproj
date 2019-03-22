@@ -42,7 +42,8 @@
     <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Pk\CryptRsaExt.c" />
     <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Pk\CryptPkcs5Pbkdf2.c" />
     <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Pk\CryptPkcs7Sign.c" />
-    <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Pk\CryptPkcs7Verify.c" />
+    <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Pk\CryptPkcs7VerifyBase.c" />
+    <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Pk\CryptPkcs7VerifyCommon.c" />
     <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Pk\CryptDh.c" />
     <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Pk\CryptX509.c" />
     <ClCompile Include="$(EDK_PATH)\CryptoPkg\Library\BaseCryptLib\Pk\CryptAuthenticode.c" />
