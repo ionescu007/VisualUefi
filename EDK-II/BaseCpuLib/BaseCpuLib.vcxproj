@@ -13,12 +13,12 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <Import Project="$(SolutionDir)\edk2.default.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-  <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  <Import Project="$(SolutionDir)\MSBuild\nasm.props" />
   <Import Project="$(SolutionDir)\edk2.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  <Import Project="$(SolutionDir)\MSBuild\nasm.targets" />
   <ItemGroup>
-    <MASM Include="$(EDK_PATH)\MdePkg\Library\BaseCpuLib\x64\CpuFlushTlb.asm" />
-    <MASM Include="$(EDK_PATH)\MdePkg\Library\BaseCpuLib\x64\CpuSleep.asm" />
+    <NASM Include="$(EDK_PATH)\MdePkg\Library\BaseCpuLib\x64\CpuFlushTlb.nasm" />
+    <NASM Include="$(EDK_PATH)\MdePkg\Library\BaseCpuLib\x64\CpuSleep.nasm" />
   </ItemGroup>
 </Project>

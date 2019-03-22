@@ -162,7 +162,9 @@ party tools, and includes the latest QEMU and OVMF w/ SecureBoot packages for ba
 
 ## Installation
 
-You should be able to open the EDK-II.SLN file and build without any issues in either Visual Studio 2015 or 2017. WDK or other 3rd party installations are not needed.
+At first install NASM (https://www.nasm.us/) and check, that environment variable NASM_PREFIX is correctly set to NASM installation path. No other 3rd party tools are needed.
+
+Than you should be able to open the EDK-II.SLN file and build without any issues in either Visual Studio 2015 or 2017. WDK is not needed. 
 
 Once the EDK-II libraries are built, you should be able to open the SAMPLES.SLN file and build the samples, which will create UefiApplication.efi, UefiDriver.efi, Cryptest.efi, and FtdiUsbSerialDxe.efi
 

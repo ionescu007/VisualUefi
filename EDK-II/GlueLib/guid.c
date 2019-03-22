@@ -38,10 +38,9 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 #include <Guid/EventGroup.h>
 
 #include <Protocol/EfiShellInterface.h>
-#include <Protocol/EfiShell.h>
+#include <Protocol/Shell.h>
 #include <Protocol/EfiShellEnvironment2.h>
-#include <Protocol/EfiShellParameters.h>
-#include <Guid/FileInfo.h>
+#include <Protocol/ShellParameters.h>
 #include <Protocol/UnicodeCollation.h>
 
 #include <Protocol/HiiDatabase.h>
