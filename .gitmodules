@@ -1,10 +1,10 @@
 [submodule "edk2"]
 	path = edk2
-	url = https://github.com/ionescu007/edk2.git
+	url = https://github.com/tianocore/edk2
 [submodule "openssl"]
 	path = openssl
 	url = https://github.com/openssl/openssl
 	branch = OpenSSL_1_1_0-stable
-[submodule "powermonkey"]
+[submodule "PowerMonkey"]
 	path = PowerMonkey
 	url = https://github.com/psyq321/PowerMonkey
