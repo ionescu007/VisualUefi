@@ -5,3 +5,6 @@
 	path = openssl
 	url = https://github.com/openssl/openssl
 	branch = OpenSSL_1_1_0-stable
+[submodule "powermonkey"]
+	path = PowerMonkey
+	url = https://github.com/psyq321/PowerMonkey
