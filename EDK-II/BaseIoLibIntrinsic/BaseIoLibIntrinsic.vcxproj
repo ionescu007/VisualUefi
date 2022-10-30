@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{FC0C87C6-B2DD-47E1-8ED6-47C218AE2706}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="$(SolutionDir)\edk2.default.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(SolutionDir)\MSBuild\nasm.props" />
+  <Import Project="$(SolutionDir)\edk2.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="$(SolutionDir)\MSBuild\nasm.targets" />
+  <ItemGroup>
+    <NASM Include="$(EDK_PATH)\MdePkg\Library\BaseIoLibIntrinsic\X64\IoFifo.nasm" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\edk2\MdePkg\Library\BaseIoLibIntrinsic\IoHighLevel.c" />
+    <ClCompile Include="..\..\edk2\MdePkg\Library\BaseIoLibIntrinsic\IoLib.c" />
+    <ClCompile Include="..\..\edk2\MdePkg\Library\BaseIoLibIntrinsic\IoLibMmioBuffer.c" />
+    <ClCompile Include="..\..\edk2\MdePkg\Library\BaseIoLibIntrinsic\IoLibMsc.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\edk2\MdePkg\Library\BaseIoLibIntrinsic\BaseIoLibIntrinsicInternal.h" />
+  </ItemGroup>
+</Project>

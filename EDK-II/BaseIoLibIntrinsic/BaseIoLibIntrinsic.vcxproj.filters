@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <NASM Include="$(EDK_PATH)\MdePkg\Library\BaseIoLibIntrinsic\X64\IoFifo.nasm" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\edk2\MdePkg\Library\BaseIoLibIntrinsic\BaseIoLibIntrinsicInternal.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\edk2\MdePkg\Library\BaseIoLibIntrinsic\IoHighLevel.c" />
+    <ClCompile Include="..\..\edk2\MdePkg\Library\BaseIoLibIntrinsic\IoLibMmioBuffer.c" />
+  </ItemGroup>
+</Project>
